@@ -1,0 +1,272 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+:root{
+    --navbar-height: 59px;
+}
+#navbar {
+    display: flex;
+    align-items:center
+    
+
+}
+/* /Logo and Image/ */
+#logo img{
+    height: 56px;
+    margin:3px 4px;
+}
+#navbar{
+    position: relative;
+}
+#navbar ul{
+    display: flex;
+}
+
+#navbar::before{
+content: "";
+background-color: #2d291c;
+position: absolute;
+height: 100%;
+width: 100%;
+z-index: -1;
+opacity: 1;
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+    /* border-radius: 20px;
+    text-decoration: none; */
+}
+#navbar ul li a{
+color: white;
+display: block;
+padding: 3px 22px;
+border-radius: 20px;
+text-decoration: none;
+
+}
+
+#navbar ul li a:hover{
+    color: #9b795c;
+    background-color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+    /* Home section */
+#home {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+}
+#home::before
+{
+    content: "";
+    position: absolute;
+    background: url('logo.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{ 
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 28px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+#services .box img{ 
+   height: 160px;
+   margin: auto;
+   display: block;
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+
+} 
+
+/* Clients Section */
+#client-section{ 
+    position: relative;
+}
+
+#client-section::before{
+ content: "";
+ position: absolute;
+ background: url('../bg.jpg');
+ width: 100%;
+ height: 100%;
+ z-index: -1;
+ opacity: 0.3;
+}
+
+#clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-item{
+    padding: 34px;
+}
+
+#clients img{
+    height: 124px;
+}
+
+
+/* Contact Section */
+#contact{
+    position: relative;
+}
+#contact::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background: url('../contact.jpg') no-repeat center center/cover;
+
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+#contact-box input, 
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+} 
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+   font-size: 1.3rem;
+   font-family: 'Bree Serif', serif;
+
+}
+
+
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+
+/* Utility Classes */
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;
+    color: #b9b6af;
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2rem;
+    padding: 12px;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: #2d291c;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.center{
+    text-align: center;
+}
+
+#services .box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#services .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+    background-color: #9b795c;
+    transform: scale(1.1);
+}
+
+
+#navbar ul li a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#navbar ul li a:hover {
+    background-color: #9b795c;
+    color: #2d291c;
+}
+
+#home h1 {
+    animation: fadeInDown 1s ease-in-out;
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#services .box img {
+    transition: opacity 0.4s ease;
+}
+#services .box:hover img {
+    opacity: 0.7;
+}
+
+button.btn {
+    position: relative;
+}
+button.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.4s ease;
+}
+button.btn:hover::before {
+    width: 100%;
+}
+
+#logo img {
+    transition: transform 0.3s ease;
+}
+#logo img:hover {
+    transform: rotate(10deg);
+}

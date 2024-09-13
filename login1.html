@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="login1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="login"></section>
+        <div class="login-box">
+            <h1 class="h-primary center">Login</h1>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="email" id="username" placeholder="Enter username (e.g., name@dbit.in)" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p class="center">Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if the email ends with @dbit.in
+            const validDomain = username.endsWith("@dbit.in");
+
+            if (!username || !password) {
+                alert("Please fill in both fields.");
+                event.preventDefault(); // Stop form submission
+            } else if (!validDomain) {
+                alert("Only users with a @dbit.in email are allowed.");
+                event.preventDefault(); // Stop form submission
+            } else {
+                // If valid, save user info in localStorage and redirect
+                localStorage.setItem('user', JSON.stringify({ username }));
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect after successful login
+            }
+        });
+    </script>
+</body>
+</html>
