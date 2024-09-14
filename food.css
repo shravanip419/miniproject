@@ -1,30 +1,58 @@
 :root {
-    --pink: #ff1493;
+    --primary-brown: #8B4513; /* Saddle Brown */
+    --lighter-brown: #CD853F; /* Peru */
+    --dark-brown: #5C4033;   /* Dark Brown */
+    --accent-color: #D2B48C; /* Tan */
+    --pink: #ff1493; /* Pink for accent elements */
+}
+
+body {
+    font-family: 'Bree Serif', serif;
+    background-color: #F5F5DC; /* Beige for a subtle background */
+    color: var(--dark-brown);
+}
+
+.products .heading {
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--dark-brown);
+}
+
+.products .heading span {
+    color: var(--primary-brown);
 }
 
 .products .box-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
 }
 
 .products .box-container .box {
     flex: 1 1 30rem;
-    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.5);
     border-radius: .5rem;
-    border: 0.1rem solid black; /* Adjusted border size */
+    border: 0.1rem solid var(--primary-brown);
     position: relative;
     overflow: hidden;
+    background-color: var(--lighter-brown); /* Lighter brown background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products .box-container .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 .8rem 2rem rgba(0, 0, 0, 0.7);
 }
 
 .products .box-container .box .discount {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: 0.7rem 1rem; /* Adjusted padding */
+    padding: 0.7rem 1rem;
     font-size: 2rem;
-    color: var(--pink);
-    background: black;
+    color: white;
+    background: var(--dark-brown); /* Dark brown discount tag */
     z-index: 1;
     border-radius: .5rem;
 }
@@ -34,6 +62,7 @@
     text-align: center;
     padding-top: 2rem;
     overflow: hidden;
+    background-color: var(--primary-brown); /* Brown background for the image section */
 }
 
 .products .box-container .box .image img {
@@ -45,30 +74,54 @@
     transform: scale(1.1);
 }
 
-.products .box-container .box:hover .image .icons {
+.products .box-container .box .image .icons {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
+    justify-content: space-around;
 }
 
 .products .box-container .box .image .icons a {
     height: 5rem;
     line-height: 5rem;
     font-size: 2rem;
-    width: 50%;
-    background: var(--pink);
-    color: aliceblue;
-}
-
-.products .box-container .box:hover .image .icons .cart-btn {
-    border-left: .1rem solid gray;
-    border-right: .1rem solid gray;
+    width: 33.33%; /* Three icons in a row */
+    background: var(--dark-brown);
+    color: white;
+    transition: background 0.3s;
 }
 
 .products .box-container .box .image .icons a:hover {
-    background-color: black;
+    background-color: var(--accent-color);
+    color: var(--primary-brown);
+}
+
+.products .box-container .box .content {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--lighter-brown);
+}
+
+.products .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    font-weight: 600;
+}
+
+.products .box-container .box .content .price {
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+
+.products .box-container .box .content .price span {
+    font-size: 2.2rem;
+    color: var(--dark-brown);
+    font-weight: lighter;
+    text-decoration: line-through;
 }
 
 @media (max-width: 768px) {
