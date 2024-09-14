@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="profile">
+        <h1>Welcome, {{ username }}!</h1>
+        <div class="profile-info">
+            <h2>Profile Information</h2>
+            <ul>
+                <li><strong>Name:</strong> {{ username }}</li>
+                <li><strong>Email:</strong> {{ email }}</li>
+                <li><strong>Student ID:</strong> {{ studentId }}</li>
+                <!-- Add more profile fields as needed -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Profile page script
+function displayProfileInfo() {
+    const currentUser = users.find(user => user.username === localStorage.getItem('user'));
+
+    // Display the user's profile information
+    const profileInfo = document.querySelector('.profile-info');
+    profileInfo.innerHTML = `
+        <h2>Profile Information</h2>
+        <ul>
+            <li><strong>Name:</strong> ${currentUser.username}</li>
+            <li><strong>Email:</strong> ${currentUser.email}</li>
+            <li><strong>Student ID:</strong> ${currentUser.studentId}</li>
+            <!-- Add more profile fields as needed -->
+        </ul>
+    `;
+}
+    </script>
+</body>
+</html>
