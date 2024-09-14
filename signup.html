@@ -14,6 +14,8 @@
             <form>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"><br><br>
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email"><br><br>
                 <label for="password">Password:</label>
@@ -39,6 +41,7 @@
         // Function to handle sign-up form submission
         function handleSignUpFormSubmission() {
             const username = document.getElementById('username').value;
+            const studentId = document.getElementById('studentId').value.trim();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
@@ -57,7 +60,8 @@
             const user = {
                 username,
                 email,
-                password
+                password,
+                studentId
             };
 
             // Store the user object in local storage
