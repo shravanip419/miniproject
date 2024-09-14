@@ -25,18 +25,18 @@ body {
 .products .box-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
 }
 
 .products .box-container .box {
-    flex: 1 1 30rem;
+    flex: 1 1 calc(33.33% - 1rem); /* Ensures 3 boxes per row */
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.5);
     border-radius: .5rem;
     border: 0.1rem solid var(--primary-brown);
     position: relative;
     overflow: hidden;
-    background-color: var(--lighter-brown); /* Lighter brown background */
+    background-color: var(--lighter-brown);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -52,7 +52,7 @@ body {
     padding: 0.7rem 1rem;
     font-size: 2rem;
     color: white;
-    background: var(--dark-brown); /* Dark brown discount tag */
+    background: var(--dark-brown);
     z-index: 1;
     border-radius: .5rem;
 }
@@ -62,7 +62,7 @@ body {
     text-align: center;
     padding-top: 2rem;
     overflow: hidden;
-    background-color: var(--primary-brown); /* Brown background for the image section */
+    background-color: var(--primary-brown);
 }
 
 .products .box-container .box .image img {
@@ -87,7 +87,7 @@ body {
     height: 5rem;
     line-height: 5rem;
     font-size: 2rem;
-    width: 33.33%; /* Three icons in a row */
+    width: 33.33%;
     background: var(--dark-brown);
     color: white;
     transition: background 0.3s;
@@ -124,8 +124,14 @@ body {
     text-decoration: line-through;
 }
 
+@media (max-width: 1200px) {
+    .products .box-container .box {
+        flex: 1 1 calc(50% - 1rem); /* Two boxes per row for medium screens */
+    }
+}
+
 @media (max-width: 768px) {
     .products .box-container .box {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* One box per row for small screens */
     }
 }
