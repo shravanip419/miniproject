@@ -1,14 +1,14 @@
 :root {
-    --primary-brown: #8B4513; /* Saddle Brown */
-    --lighter-brown: #CD853F; /* Peru */
-    --dark-brown: #5C4033;   /* Dark Brown */
-    --accent-color: #D2B48C; /* Tan */
-    --pink: #ff1493; /* Pink for accent elements */
+    --primary-brown: #8B4513;
+    --lighter-brown: #CD853F; 
+    --dark-brown: #5C4033;   
+    --accent-color: #D2B48C; 
+    --pink: #ff1493; 
 }
 
 body {
     font-family: 'Bree Serif', serif;
-    background-color: #F5F5DC; /* Beige for a subtle background */
+    background-color: #F5F5DC;
     color: var(--dark-brown);
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .products .box-container .box {
-    flex: 1 1 calc(33.33% - 1rem); /* Ensures 3 boxes per row */
+    flex: 1 1 calc(30% - 1rem); 
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.5);
     border-radius: .5rem;
     border: 0.1rem solid var(--primary-brown);
@@ -49,8 +49,8 @@ body {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: 0.7rem 1rem;
-    font-size: 2rem;
+    padding: 0.5rem 0.8rem; 
+    font-size: 1.5rem; 
     color: white;
     background: var(--dark-brown);
     z-index: 1;
@@ -60,13 +60,13 @@ body {
 .products .box-container .box .image {
     position: relative;
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem; 
     overflow: hidden;
     background-color: var(--primary-brown);
 }
 
 .products .box-container .box .image img {
-    height: 25rem;
+    height: 20rem; /* Smaller height */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -84,9 +84,9 @@ body {
 }
 
 .products .box-container .box .image .icons a {
-    height: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
+    height: 4rem; 
+    line-height: 4rem; 
+    font-size: 1.5rem; 
     width: 33.33%;
     background: var(--dark-brown);
     color: white;
@@ -99,26 +99,26 @@ body {
 }
 
 .products .box-container .box .content {
-    padding: 2rem;
+    padding: 1.5rem; 
     text-align: center;
     background-color: var(--lighter-brown);
 }
 
 .products .box-container .box .content h3 {
-    font-size: 2.5rem;
+    font-size: 2rem; 
     color: var(--primary-brown);
     font-weight: 600;
 }
 
 .products .box-container .box .content .price {
-    font-size: 2.5rem;
+    font-size: 2rem; 
     color: var(--primary-brown);
     font-weight: bolder;
-    padding-top: 1rem;
+    padding-top: 0.5rem; 
 }
 
 .products .box-container .box .content .price span {
-    font-size: 2.2rem;
+    font-size: 1.8rem; 
     color: var(--dark-brown);
     font-weight: lighter;
     text-decoration: line-through;
@@ -126,12 +126,12 @@ body {
 
 @media (max-width: 1200px) {
     .products .box-container .box {
-        flex: 1 1 calc(50% - 1rem); /* Two boxes per row for medium screens */
+        flex: 1 1 calc(45% - 1rem); 
     }
 }
 
 @media (max-width: 768px) {
     .products .box-container .box {
-        flex: 1 1 100%; /* One box per row for small screens */
+        flex: 1 1 100%; 
     }
 }
