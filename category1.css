@@ -8,7 +8,8 @@
     --light-coral: #F08080; /* Light Coral */
 }
 
-body {
+body 
+{
     
     font-family: 'Raleway', sans-serif;
     background-color: var(--pale-yellow);
@@ -18,7 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;*/
+    min-height: 100vh;
 }
 
 .categories {
@@ -57,6 +58,7 @@ button {
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 button:hover {
