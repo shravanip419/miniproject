@@ -1,0 +1,51 @@
+:root {
+    --main-brown: #8B4513; /* Saddle Brown */
+    --soft-beige: #F5F5DC; /* Beige */
+    --peach: #FFDAB9; /* Peach Puff */
+    --mint-green: #98FF98; /* Mint Green */
+    --sky-blue: #87CEEB; /* Sky Blue */
+    --pale-yellow: #FFFFE0; /* Light Yellow */
+}
+
+body {
+    font-family: 'Bree Serif', serif;
+    background-color: var(--pale-yellow);
+    color: var(--main-brown);
+    margin: 0;
+    padding: 0;
+}
+
+.categories {
+    text-align: center;
+    padding: 2rem;
+}
+
+.heading {
+    font-size: 2.5rem;
+    color: var(--main-brown);
+    margin-bottom: 1.5rem;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.category {
+    background-color: var(--mint-green);
+    color: var(--main-brown);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.category:hover {
+    background-color: var(--sky-blue);
+    transform: scale(1.05);
+}
