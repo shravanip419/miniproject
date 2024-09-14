@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="sign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="contain">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password"><br><br>
+                <input type="submit" value="Sign Up">
+            </form>
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Function to validate email address
+        function validateEmail(email) {
+            const domain = email.split('@')[1];
+            if (domain !== 'dbit.in') {
+                return false;
+            }
+            return true;
+        }
+
+        // Function to handle sign-up form submission
+        function handleSignUpFormSubmission() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert('Only email IDs with @dbit.in domain are allowed');
+                return;
+            }
+
+            // Create a new user object
+            const user = {
+                username,
+                email,
+                password
+            };
+
+            // Store the user object in local storage
+            localStorage.setItem('users', JSON.stringify([user]));
+
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        // Add event listener to sign-up form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const signUpForm = document.getElementById('sign-up-form');
+
+            signUpForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                handleSignUpFormSubmission();
+            });
+        });
+
+    </script>
+</body>
+</html>
