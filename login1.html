@@ -20,7 +20,7 @@
 
                 <button type="submit" class="btn">Login</button>
             </form>
-            <p class="center">Don't have an account? <a href="sign.html">Sign up</a></p>
+            <p class="center">Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
     </section>
 
@@ -40,8 +40,14 @@
       event.preventDefault(); // Stop form submission
     } else {
       // Check if username exists in storage
+      
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      const userExists = storedUsers.includes(username);
+      
+      
+      const userExists = storedUsers.includes('shravani.pokale@dbit.in');
+      addUsername('tushita.patil@dbit.in');
+      addUsername('shravani.pokale@dbit.in');
+      addUsername('saumya.onnya@dbit.in');
       
       function addUsername(username)
       {
@@ -49,13 +55,11 @@
         localStorage.setItem('user',JSON.stringify(storedUsers));
       }
 
-      addUsername('tushita.patil@dbit.in');
-      addUsername('shravani.pokale@dbit.in');
-      addUsername('saumya.onnya@dbit.in');
+      
 
       if (!userExists) {
         alert("You haven't signed up yet. Please sign up first.");
-        window.location.href = "sign.html"; // Redirect to sign up page
+        window.location.href = "signup.html"; // Redirect to sign up page
         event.preventDefault(); // Stop form submission
       } else {
         // If valid, save user info in localStorage and redirect

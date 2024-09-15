@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #9b795d;
+}
+
+.box {
+    display: flex; /* Flex container for side-by-side layout */
+    justify-content: space-around; /* Space between the boxes */
+    align-items: center;
+    height: 100vh;
+}
+
+.overlap-container {
+    position: relative; /* Makes the overlap work inside this container */
+    width: 40%; /* Adjusts the size for the whole overlap container */
+    height: 80vh;
+}
+
+/* First Box (on top) */
+.half-page-box1 {
+    position: absolute; /* Positioned relative to .overlap-container */
+    width: 80%;
+    height: 85vh;
+    background-color: #664b34;
+    border-radius: 25px;
+    top: 10%;
+    left: 15%;
+    z-index: 2; /* On top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.836);
+    background-image: url(food2.jfif); /* Optional background image */
+    opacity: 1;
+}
+
+.half-page-box1 h1 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Second Box (behind the first one) */
+.half-page-box2 {
+    position: absolute; /* Positioned relative to .overlap-container */
+    width: 100%;
+    height: 100vh;
+    background-color: #2d291d;
+    border-radius: 25px;
+    top: 0%;
+    left: 5%;
+    z-index: 1; /* Behind box1 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: url(food2.jfif); /* Optional background image */
+    opacity: 0.5;
+}
+
+.half-page-box2 h1 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Third Box (New one beside the overlap) */
+.half-page-box3 {
+    position: relative; /* Positioned relative to .overlap-container */
+    width: 40%;
+    height: 85vh;
+    background-color: #2d291d;
+    border-radius: 25px;
+    top: 8%;
+    left: 0%;
+    z-index: 1; /* Behind box1 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+   
+}
+
+.half-page-box3 h1 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
