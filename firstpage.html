@@ -109,12 +109,12 @@
 
 // Function to handle login
 function handleLogin(username, password) {
-  if (username === 'tushitapatil@dbit.in' && password === 'aaaaa') {
+  if (username === 'user123@dbit.in' && password === 'aaaaa') {
     // Store token and username in local storage
     localStorage.setItem('token', 'logged_in');
     localStorage.setItem('username', username);
     // Redirect back to main page
-    window.location.href = 'main.html';
+    window.location.href = 'firstpage.html';
   } else {
     alert('Invalid username or password');
   }
