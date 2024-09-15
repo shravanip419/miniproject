@@ -11,7 +11,7 @@
     <section id="contain">
         <div class="container">
             <h1>Sign Up</h1>
-            <form>
+            <form id="sign-up-form">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="studentId">Student ID:</label>
@@ -24,18 +24,20 @@
                 <input type="password" id="confirm-password" name="confirm-password"><br><br>
                 <input type="submit" value="Sign Up">
             </form>
-            <p>Already have an account? <a href="login.html">Log In</a></p>
+            <p>Already have an account? <a href="login1.html">Log In</a></p>
         </div>
     </section>
 
     <script>
         // Function to validate email address
         function validateEmail(email) {
-            const domain = email.split('@')[1];
-            if (domain !== 'dbit.in') {
-                return false;
-            }
-            return true;
+            // const domain = email.split('@')[1];
+            // if (domain !== 'dbit.in') {
+            //     return false;
+            // }
+            // return true;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@dbit\.in$/;
+            return emailRegex.test(email);
         }
 
         // Function to handle sign-up form submission
@@ -65,16 +67,24 @@
             };
 
             // Store the user object in local storage
-            localStorage.setItem('user', JSON.stringify(user));
+            // localStorage.setItem('user', JSON.stringify(user));
+            const existingUsers = localStorage.getItem('users');
+            if (existingUsers) {
+                const users = JSON.parse(existingUsers);
+                users.push(user);
+                localStorage.setItem('users', JSON.stringify(users));
+            } else {
+                localStorage.setItem('users', JSON.stringify([user]));
+            }
 
             // Redirect to login page
-            window.location.href = 'login1.html';
+            window.location.replace('login1.html');
+
         }
 
         // Add event listener to sign-up form submission
         document.addEventListener('DOMContentLoaded', function() {
             const signUpForm = document.getElementById('sign-up-form');
-
             signUpForm.addEventListener('submit', function(event) {
                 event.preventDefault();
                 handleSignUpFormSubmission();
