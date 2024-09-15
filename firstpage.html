@@ -93,19 +93,19 @@
     // main.js
 
     // Function to check if user is logged in
-    // function isLoggedIn() {
-    // // Check if a token or username is stored in local storage
-    // const token = localStorage.getItem('token');
-    // const username = localStorage.getItem('username');
-    // return token !== null && username !== null;
-    // }
+    function isLoggedIn() {
+    // Check if a token or username is stored in local storage
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+    return token !== null && username !== null;
+    }
 
-    // // Function to redirect to login page if not logged in
-    // function redirectIfNotLoggedIn() {
-    // if (!isLoggedIn()) {
-    //     window.location.href = 'login.html';
-    // }
-    // }
+    // Function to redirect to login page if not logged in
+    function redirectIfNotLoggedIn() {
+    if (!isLoggedIn()) {
+        window.location.href = 'login.html';
+    }
+    }
 
 // Function to handle login
 function handleLogin(username, password) {
