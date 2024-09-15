@@ -18,7 +18,7 @@
             <li class="item"><a href="#">Home</a></li>
             <li class="item"><a href="menu.html">Menu</a></li>
             <li class="item"><a href="#">Today's Specials</a></li>
-            <li class="item"><a href="login.html">Login</a></li>
+            <li class="item"><a href="login1.html">Login</a></li>
             <!-- <li class="item"><a href="#">Cart</a></li>
             <li class="item"><a href="#">Profile</a></li> -->
         </ul>
@@ -89,7 +89,6 @@
     <!-- // Main page script -->
     <!-- // main.js -->
     <script>
-<<<<<<< HEAD
         <!-- // Function to check if user is logged in -->
         // main.js
       
@@ -143,59 +142,6 @@
       redirectIfNotLoggedIn();
       
         </script>
-=======
-    <!-- // Function to check if user is logged in -->
-    // main.js
-
-    // Function to check if user is logged in
-    function isLoggedIn() {
-    // Check if a token or username is stored in local storage
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    return token !== null && username !== null;
-    }
-
-    // Function to redirect to login page if not logged in
-    function redirectIfNotLoggedIn() {
-    if (!isLoggedIn()) {
-        window.location.href = 'login.html';
-    }
-    }
-
-// Function to handle login
-function handleLogin(username, password) {
-  if (username === 'user123@dbit.in' && password === 'aaaaa') {
-    // Store token and username in local storage
-    localStorage.setItem('token', 'logged_in');
-    localStorage.setItem('username', username);
-    // Redirect back to main page
-    window.location.href = 'firstpage.html';
-  } else {
-    alert('Invalid username or password');
-  }
-}
-
-// Add event listener to Login button
-document.addEventListener('DOMContentLoaded', function() {
-  const loginButton = document.querySelector('button[type="submit"].btn');
-  loginButton.addEventListener('click', function(event) {
-    event.preventDefault(); // prevent default form submission
-    // Get username and password from login form
-    const loginForm = document.querySelector('#loginForm');
-    const usernameInput = loginForm.querySelector('input[name="username"]');
-    const passwordInput = loginForm.querySelector('input[name="password"]');
-    const username = usernameInput.value;
-    const password = passwordInput.value;
-    handleLogin(username, password);
-  });
-});
-
-// Check if user is logged in on page load
-redirectIfNotLoggedIn();
-
-    </script>
-    
->>>>>>> c7f53c7fb0ca959c5f7fe3872d961863f53fd7e4
     
 </body>
 </html>

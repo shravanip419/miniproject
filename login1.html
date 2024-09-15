@@ -20,33 +20,42 @@
 
                 <button type="submit" class="btn">Login</button>
             </form>
-            <p class="center">Don't have an account? <a href="signup.html">Sign up</a></p>
+            <p class="center">Don't have an account? <a href="sign.html">Sign up</a></p>
         </div>
     </section>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+        <script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-            // Get the input values
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    // Check if the email ends with @dbit.in
+    const validDomain = username.endsWith("@dbit.in");
 
-            // Basic validation
-            const emailPattern = /^[a-zA-Z0-9._-]+@dbit\.in$/;
-            if (!emailPattern.test(username)) {
-                alert("Invalid email format. Please use your DBIT email.");
-                return;
-            }
+    if (!username || !password) {
+      alert("Please fill in both fields.");
+      event.preventDefault(); // Stop form submission
+    } else if (!validDomain) {
+      alert("Only users with a @dbit.in email are allowed.");
+      event.preventDefault(); // Stop form submission
+    } else {
+      // Check if username exists in storage
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const userExists = storedUsers.includes(username);
 
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long.");
-                return;
-            }
-
-            // Redirect on successful validation
-            window.location.href = "firstpage.html";
-        });
-    </script>
+      if (!userExists) {
+        alert("You haven't signed up yet. Please sign up first.");
+        window.location.href = "sign.html"; // Redirect to sign up page
+        event.preventDefault(); // Stop form submission
+      } else {
+        // If valid, save user info in localStorage and redirect
+        localStorage.setItem('user', JSON.stringify({ username }));
+        alert("Login successful!");
+        window.location.href = "main.html"; // Redirect after successful login
+      }
+    }
+  });
+</script>
+    
 </body>
 </html>
