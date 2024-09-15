@@ -31,14 +31,16 @@ body, html {
     background-color: #664b34;
     border-radius: 25px;
     top: 10%;
-    left: 15%;
+    left: 10%;
     z-index: 2; /* On top */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.836);
-    background-image: url(food2.jfif); /* Optional background image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.089);
+    background-image: url('3fe21566-263b-44a3-b4a1-b4955faea76c.jfif'); /* Optional background image */
     opacity: 1;
+    background-size: cover; /* Ensures image covers the entire container */
+    
 }
 
 .half-page-box1 h1 {
@@ -56,14 +58,16 @@ body, html {
     background-color: #2d291d;
     border-radius: 25px;
     top: 0%;
-    left: 5%;
+    left: 0%;
     z-index: 1; /* Behind box1 */
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url(food2.jfif); /* Optional background image */
+    background-image: url('3fe21566-263b-44a3-b4a1-b4955faea76c.jfif'); /* Optional background image */
     opacity: 0.5;
+    background-size: cover; /* Ensures image covers the entire container */
+   
 }
 
 .half-page-box2 h1 {
@@ -90,9 +94,11 @@ body, html {
    
 }
 
-.half-page-box3 h1 {
+.half-page-box3 h5 {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: serif;
+    font-style: oblique;
+    align-self: start;
 }
