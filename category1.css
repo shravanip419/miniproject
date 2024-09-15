@@ -20,6 +20,7 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    animation: forwards;
 }
 
 .categories {
@@ -47,7 +48,7 @@ body
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-    
+   
 }
 
 button {
