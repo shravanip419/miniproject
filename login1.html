@@ -8,9 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <button id="myButton">Welcome DBITian!</button>
-
     <section id="login">
         <div class="login-box">
             <h1 class="h-primary center">Login</h1>
@@ -27,38 +24,38 @@
         </div>
     </section>
 
-    <script>
-        // Handling login form submission
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-    
-            // Check if the email ends with @dbit.in
-            const validDomain = username.endsWith("@dbit.in");
-    
-            if (!username || !password) {
-                alert("Please fill in both fields.");
-                event.preventDefault(); // Stop form submission
-                console.log("Form submission prevented: Missing username or password");
-            } else if (!validDomain) {
-                alert("Only users with a @dbit.in email are allowed.");
-                event.preventDefault(); // Stop form submission
-                console.log("Form submission prevented: Invalid email domain");
-            } else {
-                // If valid, save user info in localStorage and redirect
-                localStorage.setItem('user', JSON.stringify({ username }));
-                alert("Login successful!");
-                console.log("Redirecting to food.html");
-                window.location.href = 'food.html'; // Redirect after login
-            }
-        });
+        <script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-        // Handling button click to redirect
-        document.getElementById('myButton').addEventListener('click', function() {
-            // Redirect to the profile page when the button is clicked
-            window.location.href = 'profile.html';  // Change this to the desired URL
-        });
-    </script>
+    // Check if the email ends with @dbit.in
+    const validDomain = username.endsWith("@dbit.in");
 
+    if (!username || !password) {
+      alert("Please fill in both fields.");
+      event.preventDefault(); // Stop form submission
+    } else if (!validDomain) {
+      alert("Only users with a @dbit.in email are allowed.");
+      event.preventDefault(); // Stop form submission
+    } else {
+      // Check if username exists in storage
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const userExists = storedUsers.includes(username);
+
+      if (!userExists) {
+        alert("You haven't signed up yet. Please sign up first.");
+        window.location.href = "sign.html"; // Redirect to sign up page
+        event.preventDefault(); // Stop form submission
+      } else {
+        // If valid, save user info in localStorage and redirect
+        localStorage.setItem('user', JSON.stringify({ username }));
+        alert("Login successful!");
+        window.location.href = "main.html"; // Redirect after successful login
+      }
+    }
+  });
+</script>
+    
 </body>
 </html>

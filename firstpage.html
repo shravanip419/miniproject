@@ -16,7 +16,7 @@
 
         <ul>
             <li class="item"><a href="#">Home</a></li>
-            <li class="item"><a href="#">Menu</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
             <li class="item"><a href="#">Today's Specials</a></li>
             <li class="item"><a href="login.html">Login</a></li>
             <!-- <li class="item"><a href="#">Cart</a></li>
@@ -34,6 +34,10 @@
         <!-- <p>The only website you ever need to suffice your college cravings!
             <br>Scroll down and explore our options!! -->
         </p>
+        <pre>
+
+
+        </pre>
         <button class="btn">Order now!</button>
     </section>
 
@@ -41,7 +45,6 @@
         <h1 class="h-primary center">
             <pre>
 
-                
             </pre>
             Our Services</h1>
         <div id="services">
@@ -49,7 +52,7 @@
                 <img src="img/1.png" alt="">
                 <h2 class="h-secondary center">Food Ordering</h2>
                 <p class="center">
-                    Choose yuor favourite items from the menu and add them into the cart. Don't just 
+                    Choose your favourite items from the menu and add them into the cart. Don't just 
                     explore the menu tag! Explore our daily special menu and add the meals you wish to eat to the cart!
                     There are separate sections for every meal type in the Menu section
                     
@@ -77,5 +80,66 @@
             </div>
         </div>
     </section>
+
+    
+    </section>
+
+    
+
+    <!-- // Main page script -->
+    <!-- // main.js -->
+    <script>
+    <!-- // Function to check if user is logged in -->
+    // main.js
+
+    // Function to check if user is logged in
+    // function isLoggedIn() {
+    // // Check if a token or username is stored in local storage
+    // const token = localStorage.getItem('token');
+    // const username = localStorage.getItem('username');
+    // return token !== null && username !== null;
+    // }
+
+    // // Function to redirect to login page if not logged in
+    // function redirectIfNotLoggedIn() {
+    // if (!isLoggedIn()) {
+    //     window.location.href = 'login.html';
+    // }
+    // }
+
+// Function to handle login
+function handleLogin(username, password) {
+  if (username === 'tushitapatil@dbit.in' && password === 'aaaaa') {
+    // Store token and username in local storage
+    localStorage.setItem('token', 'logged_in');
+    localStorage.setItem('username', username);
+    // Redirect back to main page
+    window.location.href = 'main.html';
+  } else {
+    alert('Invalid username or password');
+  }
+}
+
+// Add event listener to Login button
+document.addEventListener('DOMContentLoaded', function() {
+  const loginButton = document.querySelector('button[type="submit"].btn');
+  loginButton.addEventListener('click', function(event) {
+    event.preventDefault(); // prevent default form submission
+    // Get username and password from login form
+    const loginForm = document.querySelector('#loginForm');
+    const usernameInput = loginForm.querySelector('input[name="username"]');
+    const passwordInput = loginForm.querySelector('input[name="password"]');
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    handleLogin(username, password);
+  });
+});
+
+// Check if user is logged in on page load
+redirectIfNotLoggedIn();
+
+    </script>
+    
+    
 </body>
 </html>
