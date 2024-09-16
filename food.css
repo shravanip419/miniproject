@@ -94,6 +94,7 @@ body {
     background: var(--dark-brown);
     color: white;
     transition: background 0.3s;
+    /* scale: 1; */
 }
 
 .products .box-container .box .image .icons a:hover {
@@ -102,7 +103,7 @@ body {
 }
 
 .products .box-container .box .content {
-    padding: 1.5rem; 
+    padding: 0.5%; 
     text-align: center;
     background-color: var(--lighter-brown);
 }
