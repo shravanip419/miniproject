@@ -63,6 +63,12 @@ text-decoration: none;
     justify-content: center;
     align-items: center;
 }
+
+/* #home{
+    background-image: url('logo.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+} */
 #home::before
 {
     content: "";
