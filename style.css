@@ -67,7 +67,8 @@ text-decoration: none;
 {
     content: "";
     position: absolute;
-    background: url('logo.jpg') no-repeat center center/cover;
+    /* background: url('logo.jpg') no-repeat center center/cover; */
+    background-image: url('logo.jpg') no-repeat center center/cover;
     margin-top: 50px;
     height: 100%;
     width: 100%;
