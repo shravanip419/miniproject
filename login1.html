@@ -40,8 +40,14 @@
       event.preventDefault(); // Stop form submission
     } else {
       // Check if username exists in storage
+      
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      const userExists = storedUsers.includes(username);
+      
+      
+      const userExists = storedUsers.includes('shravani.pokale@dbit.in');
+      addUsername('tushita.patil@dbit.in');
+      addUsername('shravani.pokale@dbit.in');
+      addUsername('saumya.onnya@dbit.in');
       
       function addUsername(username)
       {
@@ -49,9 +55,7 @@
         localStorage.setItem('user',JSON.stringify(storedUsers));
       }
 
-      addUsername('tushita.patil@dbit.in');
-      addUsername('shravani.pokale@dbit.in');
-      addUsername('saumya.onnya@dbit.in');
+      
 
       if (!userExists) {
         alert("You haven't signed up yet. Please sign up first.");
