@@ -2,19 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
-body, html {
-    height: 100%;
-    font-family: "Bree Serif",serif;
-    background-color: #9b795d;
-}
 
-.box {
+
+.box2 {
     display: flex; /* Flex container for side-by-side layout */
     justify-content: space-around; /* Space between the boxes */
     align-items: center;
     height: 100vh;
+    height: 100%;
+    font-family: "Bree Serif",serif;
+    background-color: #9b795d;
 }
 
 .overlap-container {
