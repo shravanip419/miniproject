@@ -1,114 +1,31 @@
-/**{
-    scroll-behavior: smooth;
-}
-
-/* Container for overlap */
-.overlap-container {
-    position: relative;
-    width: 50%; /* Adjusts to fit the screen properly */
-    height: 80vh;
-    margin-left: 10%; /* Moves the overlap container to the right 
-}
-
-/* First Box (on top) 
-.half-page-box1 {
-    position: absolute;
-    width: 90%; /* Adjust to fit properly */
-    height: 85vh;
-    background-color: #664b34;
-    border-radius: 25px;
-    top: 10%;
-    left: 5%; /* Adjusted to align properly */
-    z-index: 2; /* On top */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.089);
-    background-image: url('3fe21566-263b-44a3-b4a1-b4955faea76c.jfif'); 
-    opacity: 1;
-    background-size: cover;
-}
-
-/* Second Box (behind the first one) 
-.half-page-box2 {
-    position: absolute;
-    width: 100%;
-    height: 85vh; /* Consistent height with box 1 
-    background-color: #2d291d;
-    border-radius: 25px;
-    top: 0%;
-    left: 0%;
-    z-index: 1; /* Behind box1 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url('3fe21566-263b-44a3-b4a1-b4955faea76c.jfif');
-    opacity: 0.5;
-    background-size: cover;
-}
-
-/* New box beside the overlap 
-.half-page-box3 {
-    position: relative;
-    width: 45%; /* Adjusts to fit properly beside the overlap 
-    height: 85vh;
-    background-color: #2d291d;
-    border-radius: 25px;
-    margin-left: auto; /* Aligns the box to the right 
-    margin-right: 5%; /* Provides some spacing on the right 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling for content inside the third box 
-.half-page-box3 h5 {
-    margin-top: 10px;
-    color: white;
-    font-size: 1.2rem;
-    text-align: justify;
-    font-family: "Bree Serif",serif;
-    font-style: oblique;
-    align-self: start;
-    transition: all 0.3s ease-in;
-    scroll-behavior: smooth;
-}*/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #9b795d;
+}
 
-
-
-
-
-.box2 {
+.box {
     display: flex; /* Flex container for side-by-side layout */
     justify-content: space-around; /* Space between the boxes */
     align-items: center;
     height: 100vh;
-    height: 100%;
-    font-family: "Bree Serif",serif;
-    /* background-color: #9b795d; */
 }
 
 .overlap-container {
     position: relative; /* Makes the overlap work inside this container */
     width: 40%; /* Adjusts the size for the whole overlap container */
     height: 80vh;
-    left: 0%;
-    display: flex;
 }
 
 /* First Box (on top) */
 .half-page-box1 {
-    position: relative; /* Positioned relative to .overlap-container */
+    position: absolute; /* Positioned relative to .overlap-container */
     width: 80%;
     height: 85vh;
     background-color: #664b34;
@@ -167,7 +84,8 @@
     background-color: #2d291d;
     border-radius: 25px;
     top: 8%;
-    left: 0%; /* Behind box1 */
+    left: 0%;
+    z-index: 1; /* Behind box1 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,13 +94,11 @@
    
 }
 
-
 .half-page-box3 h5 {
     color: white;
-    font-size: 1rem;
-    text-align: right;
+    font-size: 1.5rem;
+    text-align: center;
     font-family: serif;
     font-style: oblique;
     align-self: start;
 }
-
