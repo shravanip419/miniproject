@@ -1,3 +1,6 @@
+*{
+    font-family: "Bree Serif",serif;
+}
 :root {
     --main-brown: #8B4513; /* Saddle Brown */
     --soft-beige: #F5F5DC; /* Beige */
@@ -6,6 +9,8 @@
     --sky-blue: #87CEEB; /* Sky Blue */
     --pale-yellow: #FFFFE0; /* Light Yellow */
     --light-coral: #F08080; /* Light Coral */
+    --theme-brown: #9b795c;
+    --theme-green: #534a2c;
 }
 
 body 
@@ -21,19 +26,22 @@ body
     align-items: center;
     min-height: 100vh;
     animation: forwards;
+    background-image: url('bg2.jpg') no-repeat center center/cover;
+    z-index: -1;
 }
 
 .categories {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(145deg, var(--peach), var(--soft-beige));
+    background: linear-gradient(145deg, var(--theme-brown), var(--soft-beige));
     border-radius: 1.5rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     opacity: 97%;
+    margin: 30px;
 }
 
 .heading {
-    font-family: 'Playfair Display', serif;
+    font-family: "Bree Serif", serif;
     font-size: 3rem;
     color: var(--main-brown);
     margin-bottom: 1.5rem;
@@ -65,7 +73,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(145deg, var(--sky-blue), var(--mint-green));
+    background: linear-gradient(145deg, var(--soft-beige), var(--main-brown));
     transform: scale(1.1);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
