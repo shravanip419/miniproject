@@ -31,23 +31,20 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     if (!username || !password) {
       alert("Please fill in both fields.");
-      event.preventDefault(); // Stop form submission
+      event.preventDefault(); 
     } else {
-      // Retrieve users from localStorage
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-      // Check if the user exists by matching the username and password
       const userExists = storedUsers.find(user => user.username === username && user.password === password);
 
       if (!userExists) {
         alert("Invalid credentials or you haven't signed up yet. Please sign up first.");
-        window.location.href = "signup.html"; // Redirect to sign up page
-        event.preventDefault(); // Stop form submission
+        event.preventDefault();
+        window.location.href = "signup.html"; // Redirect to sign up page 
       } else {
-        // If valid, save user info in localStorage and redirect
         localStorage.setItem('loggedInUser', JSON.stringify({ username }));
         alert("Login successful!");
-        window.location.href = "firstpage.html"; // Redirect after successful login
+        window.location.href = "firstpage1.html"; // Redirect after successful login
       }
     }
 });
