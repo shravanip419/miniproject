@@ -35,16 +35,29 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     } else {
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-      const userExists = storedUsers.find(user => user.username === username && user.password === password);
+      const userExists = storedUsers.find(user => user.username === username);
 
       if (!userExists) {
-        alert("Invalid credentials or you haven't signed up yet. Please sign up first.");
+        alert("You haven't signed up yet. Please sign up first.");
         event.preventDefault();
         window.location.href = "signup.html"; // Redirect to sign up page 
-      } else {
+      }
+      else if (userExists.password !==password){
+        alert("Invalid credentials. Please check your password.");
+        event.preventDefault();
+      } 
+      else {
         localStorage.setItem('loggedInUser', JSON.stringify({ username }));
         alert("Login successful!");
-        window.location.href = "firstpage1.html"; // Redirect after successful login
+        // window.location.href = "firstpage1.html";
+
+        // Debugging: Log to console before redirect
+        console.log("Redirecting to firstpage1.html");
+            
+            // Use setTimeout to ensure alert is shown before redirect
+            setTimeout(function() {
+                window.location.href = "firstpage1.html";
+            }, 100);
       }
     }
 });
