@@ -102,11 +102,13 @@
     position: relative; /* Makes the overlap work inside this container */
     width: 40%; /* Adjusts the size for the whole overlap container */
     height: 80vh;
+    left: 0%;
+    display: flex;
 }
 
 /* First Box (on top) */
 .half-page-box1 {
-    position: absolute; /* Positioned relative to .overlap-container */
+    position: relative; /* Positioned relative to .overlap-container */
     width: 80%;
     height: 85vh;
     background-color: #664b34;
@@ -165,8 +167,7 @@
     background-color: #2d291d;
     border-radius: 25px;
     top: 8%;
-    left: 0%;
-    z-index: 1; /* Behind box1 */
+    left: 0%; /* Behind box1 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,10 +176,11 @@
    
 }
 
+
 .half-page-box3 h5 {
     color: white;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1rem;
+    text-align: right;
     font-family: serif;
     font-style: oblique;
     align-self: start;
