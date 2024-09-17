@@ -68,14 +68,16 @@
 
             // Store the user object in local storage
             // localStorage.setItem('user', JSON.stringify(user));
-            const existingUsers = localStorage.getItem('users');
+            const existingUsers = localStorage.getItem('users'); // Fetch the 'users' array from localStorage
             if (existingUsers) {
-                const users = JSON.parse(existingUsers);
-                users.push(user);
-                localStorage.setItem('users', JSON.stringify(users));
+                const users = JSON.parse(existingUsers); // Parse the string to get the array of users
+                users.push(user); // Add the new 'user' object to the array
+                localStorage.setItem('users', JSON.stringify(users)); // Store the updated users array back in localStorage
             } else {
+                // If no 'users' array exists in localStorage, create a new one with just this new user
                 localStorage.setItem('users', JSON.stringify([user]));
             }
+
 
             // Redirect to login page
             window.location.replace('login1.html');

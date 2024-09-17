@@ -25,50 +25,33 @@
     </section>
 
         <script>
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
-    // Check if the email ends with @dbit.in
-    const validDomain = username.endsWith("@dbit.in");
 
     if (!username || !password) {
       alert("Please fill in both fields.");
       event.preventDefault(); // Stop form submission
-    } else if (!validDomain) {
-      alert("Only users with a @dbit.in email are allowed.");
-      event.preventDefault(); // Stop form submission
     } else {
-      // Check if username exists in storage
-      
+      // Retrieve users from localStorage
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      
-      
-      const userExists = storedUsers.includes('shravani.pokale@dbit.in');
-      addUsername('tushita.patil@dbit.in');
-      addUsername('shravani.pokale@dbit.in');
-      addUsername('saumya.onnya@dbit.in');
-      
-      function addUsername(username)
-      {
-        storedUsers.push(username);
-        localStorage.setItem('user',JSON.stringify(storedUsers));
-      }
 
-      
+      // Check if the user exists by matching the username and password
+      const userExists = storedUsers.find(user => user.username === username && user.password === password);
 
       if (!userExists) {
-        alert("You haven't signed up yet. Please sign up first.");
+        alert("Invalid credentials or you haven't signed up yet. Please sign up first.");
         window.location.href = "signup.html"; // Redirect to sign up page
         event.preventDefault(); // Stop form submission
       } else {
         // If valid, save user info in localStorage and redirect
-        localStorage.setItem('user', JSON.stringify({ username }));
+        localStorage.setItem('loggedInUser', JSON.stringify({ username }));
         alert("Login successful!");
         window.location.href = "firstpage.html"; // Redirect after successful login
       }
     }
-  });
+});
+
 </script>
     
 </body>
