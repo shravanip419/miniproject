@@ -221,5 +221,28 @@
             
         </div>
     </section>
+
+
+
+    <script>
+
+function addToCart(item, price) {
+            // Get cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if item is already in cart
+            let itemExists = cart.find(cartItem => cartItem.name === item);
+            
+            if (itemExists) {
+                itemExists.quantity += 1;
+            } else {
+                cart.push({ name: item, price: price, quantity: 1 });
+            }
+            
+            // Save cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
+    <!-- </script> -->
 </body>
 </html>
