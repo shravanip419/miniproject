@@ -12,6 +12,8 @@
         <div class="container">
             <h1>Sign Up</h1>
             <form id="sign-up-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="studentId">Student ID:</label>
@@ -42,6 +44,7 @@
 
         // Function to handle sign-up form submission
         function handleSignUpFormSubmission() {
+            const name = document.getElementById('name').value;
             const username = document.getElementById('username').value;
             const studentId = document.getElementById('studentId').value.trim();
             const email = document.getElementById('email').value;
@@ -60,6 +63,7 @@
 
             // Create a new user object
             const user = {
+                name,
                 username,
                 email,
                 password,
