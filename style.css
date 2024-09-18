@@ -280,7 +280,7 @@ button.btn:hover::before {
 
 
 .swiper-pagination-bullet {
-<<<<<<< HEAD
+/* <<<<<<< HEAD */
     margin: 10px;
   }
   body 
@@ -379,9 +379,9 @@ button.btn:hover::before {
           .swiper-slide {
     background-image: linear-gradient(to bottom, #F0F0F0, #CCCCCC);
   }
-=======
-  margin: 10px;
-}
+/* =======
+  margin: 10px; */
+
 body 
         {
             font-family: "Bree Serif",serif;
@@ -478,4 +478,4 @@ body
         .swiper-slide {
   background-image: linear-gradient(to bottom, #F0F0F0, #CCCCCC);
 }
->>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489
+/* >>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489 */
