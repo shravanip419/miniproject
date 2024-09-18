@@ -25,6 +25,7 @@ h1 {
 label {
     display: block;
     margin-bottom: 10px;
+    font-size: larger;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -38,7 +39,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 input[type="submit"] {
     font-family: "Bree Serif", serif;
     padding: 0.75rem;
-    background-color: #9b795c;
+    background-color: (--main-brown);
     color: var(--text-color);
     border: none;
     border-radius: 5px;
@@ -65,4 +66,10 @@ form{
     justify-content: center;
     text-align: center;
     color: #9b795c;
+}
+
+.container p{
+    font-size: large;
+    font-weight: 200;
+    color: #fff;
 }

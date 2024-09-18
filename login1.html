@@ -48,16 +48,16 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
       } 
       else {
         localStorage.setItem('loggedInUser', JSON.stringify({ username }));
+        setTimeout(function() {
         alert("Login successful!");
-        // window.location.href = "firstpage1.html";
+        }, 500);// alert("Login successful!");
+        window.location.href = "firstpage1.html";
 
         // Debugging: Log to console before redirect
-        console.log("Redirecting to firstpage1.html");
+        // console.log("Redirecting to firstpage1.html");
             
             // Use setTimeout to ensure alert is shown before redirect
-            setTimeout(function() {
-                window.location.href = "firstpage1.html";
-            }, 100);
+        
       }
     }
 });
