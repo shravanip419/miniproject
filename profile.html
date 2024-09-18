@@ -13,31 +13,53 @@
         <div class="profile-info">
             <h2>Profile Information</h2>
             <ul>
-                <li><strong>Name:</strong> {{ username }}</li>
+                <li><strong>Name:</strong> {{ name }}</li>
+                <li><strong>Username:</strong> {{ username }}</li>
                 <li><strong>Email:</strong> {{ email }}</li>
                 <li><strong>Student ID:</strong> {{ studentId }}</li>
+                <!-- <li><strong></strong></li> -->
                 <!-- Add more profile fields as needed -->
             </ul>
         </div>
     </section>
 
     <script>
-        // Profile page script
-function displayProfileInfo() {
-    const currentUser = users.find(user => user.username === localStorage.getItem('user'));
-
-    // Display the user's profile information
-    const profileInfo = document.querySelector('.profile-info');
-    profileInfo.innerHTML = `
-        <h2>Profile Information</h2>
-        <ul>
-            <li><strong>Name:</strong> ${currentUser.username}</li>
-            <li><strong>Email:</strong> ${currentUser.email}</li>
-            <li><strong>Student ID:</strong> ${currentUser.studentId}</li>
-            <!-- Add more profile fields as needed -->
-        </ul>
-    `;
-}
+        // Function to display the profile information
+        function displayProfileInfo() {
+            // Retrieve the logged-in user's username from localStorage
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+            if (loggedInUser) {
+                // Retrieve all users from localStorage
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+                // Find the current user's full information based on the username
+                const currentUser = users.find(user => user.username === loggedInUser.username);
+    
+                if (currentUser) {
+                    // Display the user's profile information
+                    const profileInfo = document.querySelector('.profile-info');
+                    profileInfo.innerHTML = `
+                        <h2>Profile Information</h2>
+                        <ul>
+                            <li><strong>Name:</strong> ${currentUser.username}</li>
+                            <li><strong>Email:</strong> ${currentUser.email}</li>
+                            <li><strong>Student ID:</strong> ${currentUser.studentId}</li>
+                        </ul>
+                    `;
+                } else {
+                    alert('No user information found. Please log in again.');
+                    window.location.href = 'login1.html'; // Redirect to login if no user found
+                }
+            } else {
+                alert('You are not logged in. Please log in first.');
+                window.location.href = 'login1.html'; // Redirect to login if no user is logged in
+            }
+        }
+    
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', displayProfileInfo);
     </script>
+    
 </body>
 </html>
