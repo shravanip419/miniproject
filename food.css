@@ -5,6 +5,59 @@
     --accent-color: #D2B48C; 
     --pink: #ff1493; 
 }
+:root{
+    --navbar-height: 59px;
+}
+#navbar {
+    display: flex;
+    align-items: center;
+    background-color: #2d291c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    position: fixed; /* Fix the navbar to the top 
+top: 0; /* Position it at the top 
+width: 100%; /* Make it full width 
+z-index: 10; /* Ensure it's above the content */
+}
+
+/* /Logo and Image/ */
+#logo img{
+    height: 56px;
+    margin:3px 4px;
+}
+#navbar{
+    position: relative;
+}
+#navbar ul{
+    display: flex;
+     /* Pushes the list to the right */
+}
+
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+    font-family: "Bree Serif",serif;
+}
+#navbar ul li a{
+    color: white;
+    display: block;
+    padding: 10px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+
+}
+
+#navbar ul li a:hover{
+    color: #9b795c;
+    background-color: white;
+    display: block;
+    padding: 10px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
 
 body {
     font-family: 'Bree Serif', serif;
@@ -127,12 +180,20 @@ body {
     font-weight: lighter;
     text-decoration: line-through;
 }
-.cart-icon {
+.cart-icon
+ {
     position: fixed;
     top: 20px;
     right: 20px;
     font-size: 24px;
-    color: #333;
+    background-color: #eeeeee;
+    z-index: 20;
+    margin-bottom: 10px;
+}
+.cart-icon .fas fa-shopping-cart
+{
+    color: #eeeeee;
+    
 }
 
 
