@@ -51,7 +51,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         alert("Invalid credentials. Please check your password.");
         event.preventDefault();
       } 
-      else {
+      else 
+      {
         localStorage.setItem('loggedInUser', JSON.stringify({ username }));
         setTimeout(function() {
         alert("Login successful!");
