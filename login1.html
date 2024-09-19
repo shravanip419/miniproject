@@ -29,42 +29,40 @@
 //   document.getElementById("loginForm").addEventListener("submit", function(event) 
 //   {
 // =======
+
 document.getElementById("loginForm").addEventListener("submit", function(event) {
-// >>>>>>> fcb864ee01b6d7343a4e71dccbc6734298f5d340
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-    if (!username || !password) {
-      alert("Please fill in both fields.");
-      event.preventDefault(); 
-    } else {
-      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  if (!username || !password) {
+    alert("Please fill in both fields.");
+    event.preventDefault(); 
+  } else {
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-      const userExists = storedUsers.find(user => user.username === username);
+    const userExists = storedUsers.find(user => user.username === username);
 
-      if (!userExists) {
-        alert("You haven't signed up yet. Please sign up first.");
-        event.preventDefault();
-        window.location.href = "signup.html"; // Redirect to sign up page 
-      }
-      else if (userExists.password !==password){
-        alert("Invalid credentials. Please check your password.");
-        event.preventDefault();
-      } 
-      else {
-        localStorage.setItem('loggedInUser', JSON.stringify({ username }));
-        setTimeout(function() {
-        alert("Login successful!");
-        }, 500);// alert("Login successful!");
-        window.location.href = "firstpage1.html";
+    if (!userExists) 
+    {
+      alert("You haven't signed up yet. Please sign up first.");
+      event.preventDefault();
+      window.location.href = "signup.html"; // Redirect to sign up page 
+    } 
+    else if (userExists.password !== password)
+     {
+      alert("Invalid credentials. Please check your password.");
+      event.preventDefault();
+    } else 
+    {
+      localStorage.setItem('loggedInUser', JSON.stringify({ username }));
+      
+      alert("Login successful!");
 
-        // Debugging: Log to console before redirect
-        // console.log("Redirecting to firstpage1.html");
-            
-            // Use setTimeout to ensure alert is shown before redirect
-        
-      }
+      // Prevent form submission and redirect instead
+      event.preventDefault();
+      window.location.href = "firstpage1.html";
     }
+  }
 });
 
 </script>

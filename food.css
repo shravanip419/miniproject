@@ -128,7 +128,8 @@ body {
     text-decoration: line-through;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px)
+{
     .products .box-container .box {
         flex: 1 1 calc(45% - 1rem); 
     }
