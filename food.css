@@ -183,17 +183,20 @@ body {
 .cart-icon
  {
     position: fixed;
-    top: 20px;
+    top: 35px;
     right: 20px;
     font-size: 24px;
     background-color: #eeeeee;
     z-index: 20;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #9b795c;
+
+  border-radius: 50%;
 }
 .cart-icon .fas fa-shopping-cart
 {
     color: #9b795c;
+  
     
 }
 
