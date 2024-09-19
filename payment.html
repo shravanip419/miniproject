@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Payment</title>
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --navbar-height: 59px;
+        }
+        #navbar {
+            display: flex;
+            align-items: center;
+            background-color: #2d291c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            position: fixed; /* Fix the navbar to the top 
+    top: 0; /* Position it at the top 
+    width: 100%; /* Make it full width 
+    z-index: 10; /* Ensure it's above the content */
+        }
+
+        /* /Logo and Image/ */
+        #logo img{
+            height: 56px;
+            margin:3px 4px;
+        }
+        #navbar{
+            position: relative;
+        }
+        #navbar ul{
+            display: flex;
+             /* Pushes the list to the right */
+        }
+
+        #navbar ul li{
+            list-style: none;
+            font-size: 1.3rem;
+            font-family: "Bree Serif",serif;
+        }
+        #navbar ul li a{
+            color: white;
+            display: block;
+            padding: 10px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+
+        }
+
+        #navbar ul li a:hover{
+            color: #9b795c;
+            background-color: white;
+            display: block;
+            padding: 10px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.jpg" alt="CampusEats">
+        </div>
+
+        <ul>
+            <li class="item"><a href="firstpage1.html">Home</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
+            <li class="item"><a href="food.html">Today's Specials</a></li>
+            <li class="item"><a href="profile.html">My Profile</a></li>
+            <!-- <li class="item"><a href="#">Cart</a></li>
+            <li class="item"><a href="#">Profile</a></li> -->
+        </ul>
+        </div> 
+    </nav>
+
+    <section id="main">
+        <div class="container">
+            <div class="left-side">
+              <div class="token-title">
+                TOKEN
+                <br>
+                NO.
+                <br>
+                17
+              </div>
+              <div class="token-info">
+                Estimated time: 20 mins
+                <br>
+                Play games while you wait!
+              </div>
+              <a href="games.html" class="token-button">
+                FunWithEats!
+              </a>
+            </div>
+            <div class="right-side">
+              <div class="header">
+                Thank You
+                <br>
+                For ordering with us
+              </div>
+              <div class="header1">
+                Order summary:
+              </div>
+              <table class="table">
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+                <tr>
+                  <td>Mysore Masala Dosa</td>
+                  <td>x1</td>
+                  <td>60/-</td>
+                </tr>
+                <tr>
+                  <td>Poha</td>
+                  <td>x1</td>
+                  <td>30/-</td>
+                </tr>
+                <tr>
+                  <td>Pattice</td>
+                  <td>x1</td>
+                  <td>15/-</td>
+                </tr>
+                <tr>
+                  <td>Fried rice</td>
+                  <td>x1</td>
+                  <td>70/-</td>
+                </tr>
+              </table>
+              <div class="header1">
+                Bill details:
+              </div>
+              <table class="table">
+                <tr>
+                  <th>GST:</th>
+                  <td>18/-</td>
+                </tr>
+                <tr>
+                  <th>Extra tax</th>
+                  <td>10/-</td>
+                </tr>
+                <tr>
+                  <th>Total amount:</th>
+                  <td>203/-</td>
+                </tr>
+              </table>
+              <div class="header1">
+                Mode of Payment:
+              </div>
+              <div class="content">
+                <p>Amount paid with GPay</p>
+                <p>Transaction ID: XXXXXXX1505</p>
+                <p>Order ID: 22300123</p>
+              </div>
+              
+              <div class="logo">
+                <img src="logo.jpg" alt="Campus Eats Logo"> 
+                <a href="firstpage1.html" class="token-button">
+                  Back to Home
+                </a>
+              </div>
+            </div>
+          </div>
+    </section>
+    
+</body>
+</html>

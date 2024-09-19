@@ -280,8 +280,108 @@ button.btn:hover::before {
 
 
 .swiper-pagination-bullet {
-  margin: 10px;
-}
+/* <<<<<<< HEAD */
+    margin: 10px;
+  }
+  body 
+          {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f4f4f4;
+          }
+  
+          /* Swiper container styling */
+          .swiper-container 
+          {
+              width: 100%;
+              height: 400px;
+              margin-top: 50px;
+          }
+  
+          /* Styling for Swiper slides */
+          .swiper-slide
+           {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #fff;
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              text-align: center;
+          }
+  
+          /* Custom pagination styling */
+          .swiper-pagination-bullet 
+          {
+              .swiper-pagination-bullet {
+              width: 10px;
+              height: 10px;
+              background-color: #000; /* black background */
+              border-radius: 50%;
+              margin: 10px;
+              }
+          }
+  
+          .swiper-pagination-bullet-active 
+          {
+              background-color: #005f73; /* Active pagination color */
+          }
+  
+          /* Image styling inside the slides */
+          .swiper-slide img 
+          {
+              max-width: 100%;
+              max-height: 200px;
+              border-radius:0px  100px 100px 0px ;
+              border-color: #000;
+              border-width: 10px;
+          }
+  
+          /* Text inside slides */
+          .swiper-slide h2 
+          {
+              font-size: 24px;
+              margin: 10px 0;
+          }
+  
+          .swiper-slide p
+           {
+              font-size: 16px;
+              color: #666;
+          }
+         
+          .swiper-container 
+          {
+              gap: 2rem;      
+              position: relative; /* Add this */
+              width: 100%;
+              height: 400px;
+              margin-top: 50px;
+  
+          }
+  
+          .swiper-pagination 
+          {
+              position: absolute;
+              margin: 50px;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+  
+          }
+          .swiper-wrapper
+          {
+              margin: 30px;
+              gap: 50px;
+          }
+          .swiper-slide {
+    background-image: linear-gradient(to bottom, #F0F0F0, #CCCCCC);
+  }
+/* =======
+  margin: 10px; */
+
 body 
         {
             font-family: "Bree Serif",serif;
@@ -378,3 +478,4 @@ body
         .swiper-slide {
   background-image: linear-gradient(to bottom, #F0F0F0, #CCCCCC);
 }
+/* >>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489 */
