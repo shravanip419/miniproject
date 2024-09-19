@@ -189,10 +189,11 @@ body {
     background-color: #eeeeee;
     z-index: 20;
     margin-bottom: 10px;
+    color: #9b795c;
 }
 .cart-icon .fas fa-shopping-cart
 {
-    color: #eeeeee;
+    color: #9b795c;
     
 }
 
