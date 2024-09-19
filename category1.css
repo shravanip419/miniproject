@@ -13,9 +13,64 @@
     --theme-green: #534a2c;
 }
 
+#navbar {
+    display: flex;
+    align-items:top;
+    
+
+}
+/* /Logo and Image/ */
+#logo img{
+    height: 56px;
+    margin:3px 4px;
+}
+#navbar {
+    position: absolute; /* or absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* to ensure it's on top of other elements */
+}
+#navbar ul{
+    display: flex;
+}
+
+#navbar::before{
+content: "";
+background-color: #2d291c;
+position: absolute;
+height: 100%;
+width: 100%;
+z-index: -1;
+opacity: 1;
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+    /* border-radius: 20px;
+    text-decoration: none; */
+}
+#navbar ul li a{
+color: white;
+display: block;
+padding: 3px 22px;
+border-radius: 20px;
+text-decoration: none;
+
+}
+
+#navbar ul li a:hover{
+    color: #9b795c;
+    background-color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
 body 
 {
-    
+    margin-top: 56px;
     font-family: "Bree Serif",serif;
     background-color: var(--pale-yellow);
     color: var(--main-brown);

@@ -90,10 +90,19 @@ text-decoration: none;
     margin-bottom: 20px;
 }
 
-#services .box img{ 
+/* #services .box img{ 
    height: 160px;
    margin: auto;
    display: block;
+   /* z-index: ; 
+} */
+
+.box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+    border-radius: 5px;
 }
 
 #services .box p{
