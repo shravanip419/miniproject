@@ -70,7 +70,7 @@ text-decoration: none;
 
 body 
 {
-    margin-top: 56px;
+    
     font-family: "Bree Serif",serif;
     background-color: var(--pale-yellow);
     color: var(--main-brown);
@@ -90,6 +90,7 @@ body
     border-radius: 1.5rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     opacity: 97%;
+    margin-top: 10%;
 }
 
 .heading {
