@@ -127,6 +127,14 @@ body {
     font-weight: lighter;
     text-decoration: line-through;
 }
+.cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
 
 @media (max-width: 1024px)
 {
