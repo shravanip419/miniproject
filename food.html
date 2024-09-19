@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    
+        <div class="cart-icon">
+            <a href="cart.html" class="fas fa-shopping-cart"></a>
+        </div>
+        <section class="products" id="products">
+            <!-- Your existing products code here -->
+        </section>
+    
     <section class="products" id="products">
         <h1 class="heading">Latest <span>products</span></h1>
         <div class="box-container">
@@ -20,7 +28,7 @@
                     <img src="food1.jfif" alt="Noodle Frankie">
                     <div class="icons">
                         <a href="#" class="fas fa-share"></a>
-                        <a href="CART.HTML" class="cart-btn fas fa-shopping-cart"></a>
+                        <a href="#" class="cart-btn fas fa-shopping-cart"></a>
                         <a href="#" class="fas fa-heart"></a>
                     </div>
                 </div>
@@ -191,7 +199,7 @@
                     <img src="food4.jfif" alt="Egg Frankie">
                     <div class="icons">
                         <a href="#" class="fas fa-share"></a>
-                        <a href="CART.HTML" class="cart-btn fas fa-shopping-cart"></a>
+                        <a href="" class="cart-btn fas fa-shopping-cart"></a>
                         <a href="#" class="fas fa-heart"></a>
                     </div>
                 </div>
@@ -217,31 +225,51 @@
                     <div class="price">₹50</div>
                 </div>
             </div>
+
             
             
         </div>
     </section>
+    
 
 
 
     <script>
 
-function addToCart(item, price) {
-            // Get cart from localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            // Check if item is already in cart
-            let itemExists = cart.find(cartItem => cartItem.name === item);
-            
-            if (itemExists) {
-                itemExists.quantity += 1;
-            } else {
-                cart.push({ name: item, price: price, quantity: 1 });
-            }
-            
-            // Save cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+function addToCart(item, price) 
+{
+    // Get cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if item is already in cart
+    let itemExists = cart.find(cartItem => cartItem.name === item);
+    
+    if (itemExists) {
+        itemExists.quantity += 1;
+    } else {
+        cart.push({ name: item, price: price, quantity: 1 });
+    }
+    
+    // Save cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Attach event listeners to all cart buttons
+document.querySelectorAll('.cart-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const box = event.target.closest('.box');
+        const itemName = box.querySelector('.content h3').innerText;
+        const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
+
+        // Call the addToCart function
+        addToCart(itemName, itemPrice);
+        
+        // Optional: Notify the user that the item has been added
+        alert(`${itemName} has been added to your cart!`);
+    });
+});
+
+
     </script>
     <!-- </script> -->
 </body>
