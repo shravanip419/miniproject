@@ -134,73 +134,73 @@
      </div>
     </div>
     <!-- Cart -->
-    <div class="bg-[#f5f5dc] p-4 w-1/4">
-     <h2 class="text-2xl font-bold mb-4">
-      YOUR CART
-      <i class="fas fa-shopping-cart">
-      </i>
-     </h2>
-     <div class="bg-[#f5deb3] p-4 rounded-lg mb-4">
-      <div class="flex justify-between items-center mb-2">
-       <div>
-        <input checked="" type="checkbox"/>
-        <span>
-         Veg Noodle Frankie
-        </span>
-       </div>
-       <div class="flex items-center">
-        <button class="bg-[#8b4513] text-white py-1 px-2 rounded-full">
-         +
-        </button>
-        <span class="mx-2">
-         1
-        </span>
-        <button class="bg-[#8b4513] text-white py-1 px-2 rounded-full">
-         -
-        </button>
-       </div>
-      </div>
-      <p>
-       1 x ₹50 = ₹50
-      </p>
-     </div>
-     <div class="bg-[#f5deb3] p-4 rounded-lg mb-4">
-      <div class="flex justify-between items-center mb-2">
-       <div>
-        <input checked="" type="checkbox"/>
-        <span>
-         Veg Burger
-        </span>
-       </div>
-       <div class="flex items-center">
-        <button class="bg-[#8b4513] text-white py-1 px-2 rounded-full">
-         +
-        </button>
-        <span class="mx-2">
-         1
-        </span>
-        <button class="bg-[#8b4513] text-white py-1 px-2 rounded-full">
-         -
-        </button>
-       </div>
-      </div>
-      <p>
-       1 x ₹50 = ₹50
-      </p>
-     </div>
-     <div class="flex justify-between items-center mb-4">
-      <span class="text-xl font-bold">
-       Subtotal
-      </span>
-      <span class="text-xl font-bold">
-       ₹100.00
-      </span>
-     </div>
-     <button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">
-      <a href="payment.html">CHECKOUT</a>
-     </button>
+    <div class="max-w-md mx-auto bg-#f5f5dc p-4 rounded-lg shadow-lg">
+        <h1 class="cart-title text-2xl font-bold mb-4 flex items-center">
+            YOUR CART <i class="fas fa-shopping-cart ml-2"></i>
+        </h1>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">Subtotal</span>
+            <span id="subtotal" class="font-bold text-xl">₹0.00</span>
+        </div>
+        <button class="btn w-full py-2 rounded-full font-bold">CHECKOUT</button>
     </div>
-   </div>
-  </div>
+    <script>
+        // Function to load cart items from localStorage
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            let subtotal = 0;
+
+            // Clear the cart items container
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item p-4 mb-4 rounded-lg flex justify-between items-center';
+                cartItem.innerHTML = `
+                    <div>
+                        <input type="checkbox" checked class="mr-2">
+                        <span class="font-bold">${item.name}</span>
+                        <div>${item.quantity} x ₹${item.price} = ₹${itemTotal}</div>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="btn w-8 h-8 rounded-full flex items-center justify-center text-white" onclick="changeQuantity('${item.name}', 1)">+</button>
+                        <span class="mx-2">${item.quantity}</span>
+                        <button class="btn w-8 h-8 rounded-full flex items-center justify-center text-white" onclick="changeQuantity('${item.name}', -1)">-</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            // Update subtotal
+            document.getElementById('subtotal').innerText = `₹${subtotal.toFixed(2)}`;
+        }
+
+        // Function to change quantity of items
+        function changeQuantity(itemName, delta) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(cartItem => cartItem.name === itemName);
+
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    const index = cart.indexOf(item);
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart(); // Refresh the cart display
+            }
+        }
+
+        // Load cart items on page load
+        window.onload = loadCart;
+    </script>
+
+
+
  </body>
 </html>

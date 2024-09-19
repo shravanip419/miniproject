@@ -235,38 +235,53 @@
 
 
     <script>
-
-function addToCart(item, price) 
-{
-    // Get cart from localStorage
+function addToCart(item, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Check if item is already in cart
     let itemExists = cart.find(cartItem => cartItem.name === item);
-    
     if (itemExists) {
         itemExists.quantity += 1;
     } else {
         cart.push({ name: item, price: price, quantity: 1 });
     }
-    
-    // Save cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${item} has been added to your cart!`);
 }
 
-// Attach event listeners to all cart buttons
 document.querySelectorAll('.cart-btn').forEach(button => {
     button.addEventListener('click', (event) => {
         const box = event.target.closest('.box');
         const itemName = box.querySelector('.content h3').innerText;
         const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
-
-        // Call the addToCart function
         addToCart(itemName, itemPrice);
-        
-        // Optional: Notify the user that the item has been added
-        alert(`${itemName} has been added to your cart!`);
     });
+});
+// Get the cart container element
+const cartContainer = document.querySelector('.bg-[#f5f5dc] p-4 w-1/4');
+
+// Get the cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to render cart items
+function renderCartItems() {
+  cartContainer.innerHTML = '';
+  cart.forEach((item) => {
+    const cartItemHTML = `
+      <div class="flex justify-between mb-2">
+        <p>${item.name}</p>
+        <p>₹${item.price} x ${item.quantity}</p>
+      </div>
+    `;
+    cartContainer.innerHTML += cartItemHTML;
+  });
+}
+
+// Render cart items on page load
+renderCartItems();
+
+// Add event listener to update cart when item is added
+document.addEventListener('storage', () => {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  renderCartItems();
 });
 
 
