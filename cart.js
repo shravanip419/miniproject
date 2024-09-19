@@ -1,8 +1,7 @@
-// Get references to HTML elements
-const menuItems = document.querySelectorAll('.menu-item');
-const cartItems = document.querySelector('.cart-items');
-const cartTotal = document.querySelector('.cart-total');
-const paymentPage = document.querySelector('#payment-page');
+// Cart.js
+const cartItemsContainer = document.querySelector('.cart-items');
+const cartTotalElement = document.querySelector('.cart-total');
+const paymentPageElement = document.querySelector('#payment-page');
 
 // Function to add an item to the cart
 function addToCart(item) {
@@ -15,7 +14,7 @@ function addToCart(item) {
   `;
 
   // Append the cart item to the cart items container
-  cartItems.appendChild(cartItem);
+  cartItemsContainer.appendChild(cartItem);
 
   // Update the cart total
   updateCartTotal();
@@ -27,12 +26,12 @@ function addToCart(item) {
 // Function to update the cart total
 function updateCartTotal() {
   let total = 0;
-  const cartItems = document.querySelectorAll('.cart-item');
+  const cartItems = cartItemsContainer.querySelectorAll('.cart-item');
   cartItems.forEach(item => {
     const price = item.querySelector('p:last-child').textContent.replace('₹', '');
     total += parseFloat(price);
   });
-  cartTotal.textContent = '₹${total}';
+  cartTotalElement.textContent = '₹${total}';
 }
 
 // Function to refresh the payment page
@@ -41,15 +40,15 @@ function refreshPaymentPage() {
   fetch('payment.html')
     .then(response => response.text())
     .then(data => {
-      paymentPage.innerHTML = data;
+      paymentPageElement.innerHTML = data;
     });
 }
 
-// Add click event listeners to menu items
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const itemName = item.querySelector('h3').textContent;
-    const itemPrice = item.querySelector('p').textContent.replace('₹', '');
+// Add event listeners to the "ADD+" buttons
+document.querySelectorAll('.add-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const itemName = button.parentNode.querySelector('h3').textContent;
+    const itemPrice = button.parentNode.querySelector('p').textContent.replace('₹', '');
     addToCart({ name: itemName, price: itemPrice });
   });
 });
