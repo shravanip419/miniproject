@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5dc;
+        }
+        .cart-title {
+            font-family: 'Arial Black', sans-serif;
+        }
+        .cart-item {
+            background-color: #f4a460;
+        }
+        .btn {
+            background-color: #8b4513;
+            color: white;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-md mx-auto bg-#f5f5dc p-4 rounded-lg shadow-lg">
+        <h1 class="cart-title text-2xl font-bold mb-4 flex items-center">
+            YOUR CART <i class="fas fa-shopping-cart ml-2"></i>
+        </h1>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="flex justify-between items-center mb-4">
+            <span class="font-bold">Subtotal</span>
+            <span id="subtotal" class="font-bold text-xl">₹0.00</span>
+        </div>
+        <button class="btn w-full py-2 rounded-full font-bold">CHECKOUT</button>
+    </div>
+
+    <script>
+        // Function to load cart items from localStorage
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            let subtotal = 0;
+
+            // Clear the cart items container
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item p-4 mb-4 rounded-lg flex justify-between items-center';
+                cartItem.innerHTML = `
+                    <div>
+                        <input type="checkbox" checked class="mr-2">
+                        <span class="font-bold">${item.name}</span>
+                        <div>${item.quantity} x ₹${item.price} = ₹${itemTotal}</div>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="btn w-8 h-8 rounded-full flex items-center justify-center text-white" onclick="changeQuantity('${item.name}', 1)">+</button>
+                        <span class="mx-2">${item.quantity}</span>
+                        <button class="btn w-8 h-8 rounded-full flex items-center justify-center text-white" onclick="changeQuantity('${item.name}', -1)">-</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            // Update subtotal
+            document.getElementById('subtotal').innerText = `₹${subtotal.toFixed(2)}`;
+        }
+
+        // Function to change quantity of items
+        function changeQuantity(itemName, delta) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(cartItem => cartItem.name === itemName);
+
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    const index = cart.indexOf(item);
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart(); // Refresh the cart display
+            }
+        }
+
+        // Load cart items on page load
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

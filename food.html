@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.jpg" alt="CampusEats">
+        </div>
+
+        <ul>
+            <li class="item"><a href="firstpage1.html">Home</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
+            <li class="item"><a href="food.html">Today's Specials</a></li>
+            <li class="item"><a href="profile.html">My Profile</a></li>
+            <!-- <li class="item"><a href="#">Cart</a></li>
+            <li class="item"><a href="#">Profile</a></li> -->
+        </ul>
+        </div> 
+    </nav>
+
+    
+        <div class="cart-icon">
+            <a href="cart.html" class="fas fa-shopping-cart"></a>
+        </div>
+        <section class="products" id="products">
+            <!-- Your existing products code here -->
+        </section>
+    
     <section class="products" id="products">
         <h1 class="heading">Latest <span>products</span></h1>
         <div class="box-container">
@@ -191,7 +216,7 @@
                     <img src="food4.jfif" alt="Egg Frankie">
                     <div class="icons">
                         <a href="#" class="fas fa-share"></a>
-                        <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                        <a href="" class="cart-btn fas fa-shopping-cart"></a>
                         <a href="#" class="fas fa-heart"></a>
                     </div>
                 </div>
@@ -217,31 +242,66 @@
                     <div class="price">₹50</div>
                 </div>
             </div>
+
             
             
         </div>
     </section>
+    
 
 
 
     <script>
-
 function addToCart(item, price) {
-            // Get cart from localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            // Check if item is already in cart
-            let itemExists = cart.find(cartItem => cartItem.name === item);
-            
-            if (itemExists) {
-                itemExists.quantity += 1;
-            } else {
-                cart.push({ name: item, price: price, quantity: 1 });
-            }
-            
-            // Save cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let itemExists = cart.find(cartItem => cartItem.name === item);
+    if (itemExists) {
+        itemExists.quantity += 1;
+    } else {
+        cart.push({ name: item, price: price, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${item} has been added to your cart!`);
+}
+
+document.querySelectorAll('.cart-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const box = event.target.closest('.box');
+        const itemName = box.querySelector('.content h3').innerText;
+        const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
+        addToCart(itemName, itemPrice);
+    });
+});
+// Get the cart container element
+const cartContainer = document.querySelector('.bg-[#f5f5dc] p-4 w-1/4');
+
+// Get the cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to render cart items
+function renderCartItems() {
+  cartContainer.innerHTML = '';
+  cart.forEach((item) => {
+    const cartItemHTML = `
+      <div class="flex justify-between mb-2">
+        <p>${item.name}</p>
+        <p>₹${item.price} x ${item.quantity}</p>
+      </div>
+    `;
+    cartContainer.innerHTML += cartItemHTML;
+  });
+}
+
+// Render cart items on page load
+renderCartItems();
+
+// Add event listener to update cart when item is added
+document.addEventListener('storage', () => {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  renderCartItems();
+});
+
+
     </script>
     <!-- </script> -->
 </body>
