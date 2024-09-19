@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Bree Serif", serif;
+        }
+    </style>
+</head>
+<body class="bg-[#f5f5dc]">
+    <div class="flex flex-col min-h-screen">
+        <div class="bg-[#2d291c] text-white flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <img src="logo.jpg" alt="Campus Eats Logo" class="h-12 w-12" />
+                <div class="ml-2">
+                    <h1 class="text-xl font-bold">CampusEats</h1>
+                    <p class="text-sm">DBIT Canteen</p>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <a href="firstpage1.html" class="hover:underline">Home</a>
+                <a href="category1.html" class="hover:underline">Menu</a>
+                <a href="food.html" class="hover:underline">Today's Specials</a>
+                <a href="profile.html" class="hover:underline">My profile</a>
+            </div>
+        </div>
+
+        <div class="flex flex-1">
+            <div class="bg-[#f5f5dc] p-4 w-1/4">
+                <h2 class="text-2xl font-bold mb-4">DBIT CANTEEN</h2>
+                <ul class="space-y-2">
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('appetizers')">APPETIZERS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('main-course')">MAIN COURSE</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('desserts')">DESSERTS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('beverages')">BEVERAGES</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('snacks')">SNACKS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="loadCategory('extra-add-ons')">EXTRA ADD ONS</button></li>
+                </ul>
+            </div>
+        <!-- <section id="categoryDisplay"> -->
+            <div id="menu-items"  class="flex-1 p-4 grid grid-cols-2 gap-4">
+                <div class="bg-[#d2b48c] p-4 rounded-lg">
+                    <img src="poha.jpg" alt="Poha" class="rounded-lg mb-2" width="150" height="100">
+                    <h3 class="text-xl font-bold">Poha</h3>
+                    <p class="text-lg">₹50</p>
+                    <button class="bg-[#8b4513] text-white py-1 px-4 rounded-full" onclick="addToCart('Poha', 50)">ADD+</button>
+                </div>
+                <div class="bg-[#d2b48c] p-4 rounded-lg">
+                    <img src="upma.jpg" alt="Upma" class="rounded-lg mb-2" width="150" height="100">
+                    <h3 class="text-xl font-bold">Upma</h3>
+                    <p class="text-lg">₹45</p>
+                    <button class="bg-[#8b4513] text-white py-1 px-4 rounded-full" onclick="addToCart('Upma', 45)">ADD+</button>
+                </div>
+            </div>
+
+            <div class="max-w-md mx-auto bg-[#f5deb3] p-4 rounded-lg shadow-lg">
+                <h1 class="cart-title text-2xl font-bold mb-4 flex items-center">YOUR CART <i class="fas fa-shopping-cart ml-2"></i></h1>
+                <div id="cart-items" class="cart-items"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold">Subtotal</span>
+                    <span id="cart-total" class="font-bold text-xl">₹0.00</span>
+                </div>
+                <button class="bg-[#8b4513] btn w-full py-2 rounded-full font-bold">CHECKOUT</button>
+            </div>
+        </div>
+
+        <script>
+            // function loadCategory(category) {
+            //     const xhr = new XMLHttpRequest();
+            //     xhr.open('GET', 'food.html', true);
+            //     xhr.onload = function() {
+            //         if (this.status === 200) {
+            //             const menuItems = document.getElementById('menu-items');
+            //             const data = JSON.parse(this.responseText);
+            //             const items = data[category];
+            //             menuItems.innerHTML = '';
+            //             items.forEach(item => {
+            //                 const itemElement = document.createElement('div');
+            //                 itemElement.className = 'bg-[#d2b48c] p-4 rounded-lg';
+            //                 itemElement.innerHTML = `
+            //                     <img src="${item.image}" alt="${item.name}" class="rounded-lg mb-2" width="150" height="100">
+            //                     <h3 class="text-xl font-bold">${item.name}</h3>
+            //                     <p class="text-lg">₹${item.price}</p>
+            //                     <button class="bg-[#8b4513] text-white py-1 px-4 rounded-full" onclick="addToCart('${item.name}', ${item.price})">ADD+</button>
+            //                 `;
+            //                 menuItems.appendChild(itemElement);
+            //             });
+            //         }
+            //     };
+            //     xhr.send();
+            // }
+
+
+            function loadCategory(category) {
+                fetch('food.html')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const items = doc.querySelectorAll(`#${category} .box`);
+                    
+                    const menuItemsContainer = document.getElementById('menu-items');
+                    menuItemsContainer.innerHTML = '';
+                    
+                    items.forEach(item => {
+                        menuItemsContainer.appendChild(item.cloneNode(true));
+                    });
+                })
+                .catch(error => console.error('Error loading category:', error));
+            }
+
+            function loadCart() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartItemsContainer = document.getElementById('cart-items');
+                let subtotal = 0;
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item p-4 mb-4 rounded-lg flex justify-between items-center';
+                    cartItem.innerHTML = `
+                        <div>
+                            <input type="checkbox" checked class="mr-2">
+                            <span class="font-bold">${item.name}</span>
+                            <div>${item.quantity} x ₹${item.price} = ₹${itemTotal}</div>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="bg-[#8b4513] text-white py-1 px-3 rounded-full" onclick="changeQuantity('${item.name}', 1)">+</button>
+                            <span class="mx-2">${item.quantity}</span>
+                            <button class="bg-[#8b4513] text-white py-1 px-3 rounded-full" onclick="changeQuantity('${item.name}', -1)">-</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                document.getElementById('cart-total').innerText = `₹${subtotal.toFixed(2)}`;
+            }
+
+            function addToCart(name, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = cart.find(cartItem => cartItem.name === name);
+                if (item) {
+                    item.quantity += 1;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            }
+
+            function changeQuantity(name, delta) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = cart.find(cartItem => cartItem.name === name);
+                if (item) {
+                    item.quantity += delta;
+                    if (item.quantity <= 0) {
+                        cart = cart.filter(cartItem => cartItem.name !== name);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    loadCart();
+                }
+            }
+
+            window.onload = loadCart;
+        </script>
+    </div>
+</body>
+</html>
