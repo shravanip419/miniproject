@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Bree Serif", serif;
+        }
+
+        /* Custom styling for the token page layout */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .token-box {
+            flex: 1;
+            background-color: #d2b48c;
+            padding: 20px;
+            border-radius: 8px;
+            height: 80vh; /* Increased height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80vh; /* Match the token box height */
+        }
+
+        .order-summary-box,
+        .bill-box {
+            background-color: #d2b48c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .bill-box {
+            margin-bottom: 0; /* Remove margin for the last box */
+        }
+    </style>
+</head>
+
+<body class="bg-[#f5f5dc]">
+    <div class="flex flex-col min-h-screen items-center justify-center p-6">
+        <h1 class="text-3xl font-bold mb-6">Order Confirmation</h1>
+
+        <div class="main-container">
+            <!-- Token Box -->
+            <div class="token-box shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Your Token</h2>
+                <div class="flex justify-center items-center">
+                    <span id="token" class="text-2xl font-bold">#12345</span>
+                </div>
+                <button onclick="generateToken()" class="bg-[#8b4513] text-white mt-4 py-2 px-4 rounded-full w-full">
+                    Change Token
+                </button>
+            </div>
+
+            <!-- Right Section: Order Summary & Bill -->
+            <div class="right-section">
+                <!-- Order Summary Box -->
+                <div class="order-summary-box shadow-lg">
+                    <h2 class="text-xl font-bold mb-4">Order Summary</h2>
+                    <div id="order-summary"></div>
+                </div>
+
+                <!-- Bill Box -->
+                <div class="bill-box shadow-lg">
+                    <h2 class="text-xl font-bold mb-4">Total Bill</h2>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">Total:</span>
+                        <span id="total-amount" class="font-bold text-xl">₹0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateToken() {
+            const randomToken = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('token').innerText = `#${randomToken}`;
+        }
+
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderSummaryContainer = document.getElementById('order-summary');
+            let totalAmount = 0;
+            orderSummaryContainer.innerHTML = '';
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalAmount += itemTotal;
+
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item mb-4';
+                orderItem.innerHTML = `
+                    <div class="flex justify-between">
+                        <span class="font-bold">${item.name}</span>
+                        <span>${item.quantity} x ₹${item.price} = ₹${itemTotal.toFixed(2)}</span>
+                    </div>
+                `;
+                orderSummaryContainer.appendChild(orderItem);
+            });
+            document.getElementById('total-amount').innerText = `₹${totalAmount.toFixed(2)}`;
+        }
+
+        window.onload = loadOrderSummary;
+    </script>
+</body>
+
+</html>
