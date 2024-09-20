@@ -37,7 +37,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
   if (!username || !password) {
     alert("Please fill in both fields.");
     event.preventDefault(); 
-  } else {
+  } 
+  else {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
     const userExists = storedUsers.find(user => user.username === username);
@@ -49,10 +50,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
       window.location.href = "signup.html"; // Redirect to sign up page 
     } 
     else if (userExists.password !== password)
-     {
+    {
       alert("Invalid credentials. Please check your password.");
       event.preventDefault();
-    } else 
+    } 
+    else 
     {
       localStorage.setItem('loggedInUser', JSON.stringify({ username }));
       
