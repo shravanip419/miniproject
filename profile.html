@@ -9,7 +9,7 @@
 </head>
 <body>
     <section id="profile">
-        <h1>Welcome, {{ username }}!</h1>
+        <h1>Welcome <span id="username"></span>!</h1>
         <div class="profile-info">
             <h2>Profile Information</h2>
             <ul>
@@ -76,6 +76,7 @@ function displayProfileInfo() {
     if (currentUser) {
       // Display the user's profile information
       const profileInfo = document.querySelector('.profile-info');
+      document.getElementById('username').textContent = currentUser.username;
       profileInfo.innerHTML = `
         <h2>Profile Information</h2>
         <ul>
