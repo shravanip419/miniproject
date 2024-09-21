@@ -2,8 +2,8 @@
 *{
     margin: 0%;
     padding: 0%;
-    font-family: "Bree Serif",serif;
         } 
+        
 :root{
     --navbar-height: 59px;
 }
@@ -15,8 +15,12 @@
 }
 /* /Logo and Image/ */
 #logo img{
-    height: 56px;
+    height: 52px;
+    /* width: 100%; */
     margin:3px 4px;
+    border-radius: 20%;
+    box-shadow: #060605;
+    object-fit: fill;
 }
 
 #navbar ul{
@@ -48,7 +52,7 @@ text-decoration: none;
 }
 
 #navbar ul li a:hover{
-    color: #9b795c;
+    color: #d4d1cf;
     background-color: white;
     display: block;
     padding: 3px 22px;
@@ -59,7 +63,8 @@ text-decoration: none;
 #home {
     display: flex;
     flex-direction: column;
-    padding: 3px 200px;
+    padding: 3px 20px;
+    height: 400px;
     justify-content: center;
     align-items: center;
 }
@@ -67,12 +72,12 @@ text-decoration: none;
 {
     content: "";
     position: absolute;
-    background: url('logo.jpg') no-repeat center center/cover;
-    margin-top: 30px;
+    background: url('https://i.pinimg.com/564x/88/4e/ec/884eecd8c82bb37a263c252aaa0bba96.jpg') no-repeat center center/cover;
+    margin-top: 33px;
     height: 100%;
     width: 100%;
     z-index:-1; ;
-    opacity:0.89;
+    opacity: 0.7;
     display: flex;
 }
 /* Services Section */
@@ -188,10 +193,17 @@ footer{
 .h-primary{
     font-family: 'Bree Serif', serif;
     font-size: 3.8rem;
-    padding: 12px;
-    color: #b9b6af;
+    padding: 20px;
+    color: #320a0a;
+    /* justify-content: center;
+    align-items: center;
+    display: flex; */
 }
-
+/* .h-p{
+    font-family: 'Bree Serif', serif;
+    font-size: 4rem;
+    color: #000;
+} */
 .h-secondary{
     font-family: 'Bree Serif', serif;
     font-size: 2rem;
@@ -393,10 +405,10 @@ button.btn:hover::before {
 
 body 
         {
-            font-family: "Bree Serif",serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
 
         /* Swiper container styling */
@@ -487,4 +499,31 @@ body
         .swiper-slide {
   background-image: linear-gradient(to bottom, #F0F0F0, #CCCCCC);
 }
+
+.swiper-container {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    transition: opacity 0.5s ease-in-out; /* Fade effect */
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0; /* Start as invisible */
+    position: absolute; /* Positioning for overlapping */
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide-active {
+    opacity: 1; /* Only active slide is visible */
+}
+
 /* >>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489 */
