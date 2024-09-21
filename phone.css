@@ -1,0 +1,47 @@
+*{
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+/* navigation */
+#navbar{
+    flex-direction: column;
+}
+/* Home section */
+#home{
+height: 500px;  
+padding: 3px 30px;
+}
+
+#home::before{
+height: 600px; 
+}
+
+#home h1{
+    font-size: 50px;
+}
+/* 
+Our Services */
+#services{
+    flex-direction: column;
+}
+
+#services .box{
+    
+}
+
+/* Swiper */
+.swiper slide{
+    flex-direction: column;
+
+}
+
+/* Utility Classes */
+.h-primary{
+    font-size: 40px;
+}

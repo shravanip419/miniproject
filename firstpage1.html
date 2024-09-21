@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusEats</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1190px)" href="phone.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+   
+
 </head>
 <body>
     <nav id="navbar">
@@ -17,6 +20,8 @@
         <ul>
             <!-- Home -->
             <li class="item"><a href="firstpage.html">Home</a></li>
+            <!-- Services -->
+            <li class="item"><a href="#">Our Services</a></li>
             <!-- Menu -->
             <li class="item"><a href="category1.html">Menu</a></li>
             <!-- Today's Specials -->
@@ -27,13 +32,13 @@
     </nav>
     
     <section id="home">
-        <h1 class="h-primary center">Welcome to  
+        <h1 class="h-primary center" >Welcome to CampusEats! 
             <pre>      
 
             </pre>
         </h1>
-        <!-- <p>The only website you ever need to suffice your college cravings!
-            <br>Scroll down and explore our options!! -->
+        <p style="color: black; font-family: 'Times New Roman', Times, serif; font-size: xx-large; text-align: center;">The only website you ever need to suffice your college cravings!
+            <br>Scroll down and explore our options!!
         </p>
         <pre>
 
@@ -81,84 +86,60 @@
             </div>
         </div>
     </section>
-<!-- Swiper Section -->
+
+<!-- Swiper section -->
 <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Box 1">
-            <!-- <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi error minima laborum quae enim, eius et, voluptatem sed aliquam repellat magnam aut asperiores cumque fuga dolore suscipit non, fugiat dolorum!</h2> -->
+            <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Delicious South Indian Breakfast Thali">
             <h2>
-                Reccomending the canteen's most famous South Indian breakfast pallete!
-                A mixture of the divine spices of our southern region, brought to the bustling lives
-                of ours in Mumbai - taste the delicious meal right now! Order now!
+                Recommending the canteen's most famous South Indian breakfast palette! A mixture of divine spices from our southern region, brought to the bustling lives of ours in Mumbai. Taste this delicious meal right now! <strong>Order now!</strong>
             </h2>
-            <p><pre>
-
-
-
-<!-- <<<<<<< Updated upstream -->
-            </pre></p>
         </div>
         <div class="swiper-slide">
-            <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
+            <img src="Poori Masala - Spice Up The Curry.jfif" alt="Piping hot Puri with Bhaji Masala">
             <h2>
-                The piping hotness of a puri tossed together with the warm and comforting bhaji masala! 
-                Could there BE any better combination? Taste the magic of the Puri Masala today!
-                Order now, and savor it while the puri is steaming hot - only the best way to have it!
+                The piping hotness of a puri tossed together with the warm and comforting bhaji masala! Taste the magic of Puri Masala today! <strong>Order now!</strong>
             </h2>
-            <!-- <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sequi eum temporibus sed, dolore a? Commodi voluptatem velit illo est similique dolorem voluptatum nobis, iste molestiae, quidem, repudiandae ab atque!</h2> -->
-            <p><pre>
-
-
-                
-            </pre></p>
         </div>
         <div class="swiper-slide">
-            <img src="Vada Snap.jfif" alt="Box 3">
+            <img src="Vada Snap.jfif" alt="Crispy Medu Vada">
             <h2>
-                And here comes the star of the menu - the Medu vada! Known to be sold out even before the breakfast bell hits our ears. 
-                The crunchyness outside, the soft dough cooked appropriately well on the inside - heaven in a plate to describe it!
-                Order this famous yet short lived dish of our canteen to secure your order before it sells out!
+                And here comes the star of the menu - the Medu vada! Known to sell out quickly. Order this famous dish to secure your spot before it’s gone!
             </h2>
-            <!-- <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsa laborum facere provident cupiditate numquam neque. Explicabo nihil iste perferendis tempora nesciunt vel, dolorum ipsum, itaque distinctio atque dolorem officia.</h2> -->
-            <p><pre>
-
-
-
-
-                
-            </pre></p>
         </div>
     </div>
     <!-- Pagination -->
     <div class="swiper-pagination"></div>
 </div>
 
+<!-- Script FOR SWIPE -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-
-<script src="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper('.swiper-container', {
-pagination: {
-el: '.swiper-pagination',
-clickable: true,
-},
-slidesPerView:1,
-spaceBetween:5,
-});
+    const swiper = new Swiper('.mySwiper', {
+        autoplay: {
+            delay: 3000, // 3 seconds delay
+            disableOnInteraction: false, // Continue autoplay after user interactions
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        loop: true, // Loop through slides
     });
 </script>
 
 
 
-    <script>
-// =======
+    <!-- <script> -->
+<!-- // =======
     
     
 // >>>>>>> Stashed changes
-        // <!-- // Function to check if user is logged in -->
-    // <!-- // main.js
+        // // Function to check if user is logged in -->
+     <!-- // main.js
 
     // Function to check if user is logged in
     // function isLoggedIn() {
@@ -176,6 +157,6 @@ spaceBetween:5,
     // } -->
 
 
-    </script>
+    <!-- </script> -->
 </body>
 </html>
