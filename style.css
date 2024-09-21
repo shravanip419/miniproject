@@ -64,11 +64,16 @@ text-decoration: none;
 #home {
     display: flex;
     flex-direction: column;
-    padding: 3px 20px;
+    padding: 3px 200px;
     height: 400px;
     justify-content: center;
     align-items: center;
+    /* margin-top: px; */
 }
+#home h1{
+    margin-top: 200px;
+    }
+
 #home::before
 {
     content: "";
@@ -303,7 +308,7 @@ button.btn:hover::before {
 
 .swiper-pagination-bullet {
 /* <<<<<<< HEAD */
-    margin: 10px;
+    /* margin: 10px; */
   }
   body 
           {
