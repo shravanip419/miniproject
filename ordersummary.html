@@ -12,7 +12,21 @@
     <style>
         body {
             font-family: "Bree Serif", serif;
-        }
+            background-image: url(Sweet\ seamless\ background\ stock\ vector_\ Illustration\ of\ roll\ -\ 13932127.jfif); 
+            background-size: cover;
+            position: relative;
+            }
+
+            body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5); /* Adjust opacity here */
+            z-index: -1; /* Make sure it stays behind the content */
+            }
 
         /* Custom styling for the layout */
         .main-container {
