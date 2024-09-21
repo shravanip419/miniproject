@@ -12,9 +12,23 @@
     <style>
         body {
             font-family: "Bree Serif", serif;
-        }
+            background-image: url(Sweet\ seamless\ background\ stock\ vector_\ Illustration\ of\ roll\ -\ 13932127.jfif); 
+            background-size: cover;
+            position: relative;
+            }
 
-        /* Custom styling for the token page layout */
+            body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5); /* Adjust opacity here */
+            z-index: -1; /* Make sure it stays behind the content */
+            }
+
+        /* Custom styling for the layout */
         .main-container {
             display: flex;
             justify-content: space-between;
@@ -22,16 +36,27 @@
             margin: 0 auto;
         }
 
+        .token-box, .order-summary-box, .bill-box {
+            background-color: #f9ebe0;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .token-box:hover, .order-summary-box:hover, .bill-box:hover {
+            transform: scale(1.05);
+        }
+
         .token-box {
             flex: 1;
-            background-color: #d2b48c;
-            padding: 20px;
-            border-radius: 8px;
-            height: 80vh; /* Increased height */
+            padding: 40px;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, #f3cbbf, #d2b48c);
         }
 
         .right-section {
@@ -39,19 +64,72 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 80vh; /* Match the token box height */
+            height: 80vh;
         }
 
-        .order-summary-box,
-        .bill-box {
-            background-color: #d2b48c;
-            padding: 20px;
-            border-radius: 8px;
+        .order-summary-box {
             margin-bottom: 20px;
         }
 
-        .bill-box {
-            margin-bottom: 0; /* Remove margin for the last box */
+        h1, h2 {
+            color: #8b4513;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a0522d;
+        }
+
+        /* Flex styling */
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .order-item {
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Custom Scrollbar */
+        .right-section {
+            overflow-y: auto;
+        }
+
+        .right-section::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .right-section::-webkit-scrollbar-thumb {
+            background-color: #8b4513;
+            border-radius: 10px;
+        }
+
+        .right-section::-webkit-scrollbar-track {
+            background-color: #f9ebe0;
         }
     </style>
 </head>
@@ -67,9 +145,7 @@
                 <div class="flex justify-center items-center">
                     <span id="token" class="text-2xl font-bold">#12345</span>
                 </div>
-                <button onclick="generateToken()" class="bg-[#8b4513] text-white mt-4 py-2 px-4 rounded-full w-full">
-                    Change Token
-                </button>
+                <button onclick="generateToken()" class="mt-6 py-2 px-6">Change Token</button>
             </div>
 
             <!-- Right Section: Order Summary & Bill -->
