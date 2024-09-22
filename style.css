@@ -2,7 +2,8 @@
 *{
     margin: 0%;
     padding: 0%;
-        } 
+    font-family: "Bree Serif",serif;
+} 
         
 :root{
     --navbar-height: 59px;
@@ -71,20 +72,34 @@ text-decoration: none;
     /* margin-top: px; */
 }
 #home h1{
-    margin-top: 200px;
-    }
+    margin-top: 150px;
+    color: #1a1810;
+    text-shadow:3px 3px 4px #f5f5dc;
+}
 
 #home::before
 {
     content: "";
     position: absolute;
-    background: url('https://i.pinimg.com/564x/88/4e/ec/884eecd8c82bb37a263c252aaa0bba96.jpg') no-repeat center center/cover;
+    background: url('bgfin.jpg') no-repeat center center/cover;
+    background-size: cover;
+    
+    /* margin-top: 220px; */
     margin-top: 0px;
     height: 100%;
     width: 100%;
     z-index:-1; ;
     opacity: 0.7;
     display: flex;
+}
+
+#home .title{
+    font-size: 200px;
+    margin-top: 70px;
+    font-family: "Great Vibes", system-ui;
+    color: #1a1810;
+    font-style: normal;
+    text-shadow: 5px 5px 8px #f5f5dc;
 }
 /* Services Section */
 #services{
@@ -117,6 +132,7 @@ text-decoration: none;
 
 #services .box p{
     font-family: 'Bree Serif', serif;
+    /* height: 350px; */
 
 } 
 
@@ -302,9 +318,9 @@ button.btn:hover::before {
     transform: rotate(10deg);
 }
 
-#home img{
+/* #home img{
 
-}
+} */
 
 
 
@@ -617,6 +633,10 @@ body {
 } */
 
 /* Custom pagination styling */
+.swiper-slide{
+    /* margin-left: 20px; */
+}
+
 .swiper-pagination {
     position: absolute;
     bottom: 10px;
