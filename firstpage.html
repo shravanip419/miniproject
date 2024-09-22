@@ -49,6 +49,7 @@
         <h1 class="h-primary center">
             <pre>
 
+                
             </pre>
             Our Services</h1>
         <div id="services">
@@ -178,6 +179,20 @@ spaceBetween:5,
         },
         loop: true, // Loop through slides
     });
+
+    const buttons = document.getElementsByClassName("btn");
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function(event) {
+            // event.preventDefault();
+            // const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            
+            // if (!loggedInUser) {
+            alert("Kindly login first!");
+            window.location.href = 'login1.html'; // Redirect to login page
+            
+        });
+    }
 </script>
 
 </body>

@@ -21,10 +21,6 @@
             left: 0;
             width: 100%;
             z-index: 10;
-            position: fixed; /* Fix the navbar to the top 
-    top: 0; /* Position it at the top 
-    width: 100%; /* Make it full width 
-    z-index: 10; /* Ensure it's above the content */
         }
 
         /* /Logo and Image/ */
@@ -32,12 +28,8 @@
             height: 56px;
             margin:3px 4px;
         }
-        #navbar{
-            position: relative;
-        }
         #navbar ul{
             display: flex;
-             /* Pushes the list to the right */
         }
 
         #navbar ul li{
@@ -51,7 +43,6 @@
             padding: 10px 22px;
             border-radius: 20px;
             text-decoration: none;
-
         }
 
         #navbar ul li a:hover{
@@ -75,10 +66,7 @@
             <li class="item"><a href="category1.html">Menu</a></li>
             <li class="item"><a href="food.html">Today's Specials</a></li>
             <li class="item"><a href="profile.html">My Profile</a></li>
-            <!-- <li class="item"><a href="#">Cart</a></li>
-            <li class="item"><a href="#">Profile</a></li> -->
         </ul>
-        </div> 
     </nav>
 
     <section id="main">
@@ -89,7 +77,11 @@
                 <br>
                 NO.
                 <br>
-                17
+                <!-- <div>
+                  <span id="token">#12345</span>
+              </div>
+              <button onclick="generateToken()">Change Token</button>
+          </div> -->
               </div>
               <div class="token-info">
                 Estimated time: 20 mins
@@ -101,6 +93,10 @@
               </a>
             </div>
             <div class="right-side">
+              <pre>
+
+
+              </pre>
               <div class="header">
                 Thank You
                 <br>
@@ -109,48 +105,35 @@
               <div class="header1">
                 Order summary:
               </div>
-              <table class="table">
+              <!-- Order summary table -->
+              <table class="table" id="order-summary">
                 <tr>
                   <th>Item</th>
                   <th>Quantity</th>
                   <th>Price</th>
                 </tr>
-                <tr>
-                  <td>Mysore Masala Dosa</td>
-                  <td>x1</td>
-                  <td>60/-</td>
-                </tr>
-                <tr>
-                  <td>Poha</td>
-                  <td>x1</td>
-                  <td>30/-</td>
-                </tr>
-                <tr>
-                  <td>Pattice</td>
-                  <td>x1</td>
-                  <td>15/-</td>
-                </tr>
-                <tr>
-                  <td>Fried rice</td>
-                  <td>x1</td>
-                  <td>70/-</td>
-                </tr>
               </table>
+              
               <div class="header1">
                 Bill details:
               </div>
-              <table class="table">
-                <tr>
-                  <th>GST:</th>
-                  <td>18/-</td>
+              <!-- Bill details table -->
+              <table class="table" id="bill-details">
+                <!-- <tr>
+                  <th>Subtotal:</th>
+                  <td id="subtotal">₹0</td>
                 </tr>
                 <tr>
-                  <th>Extra tax</th>
-                  <td>10/-</td>
+                  <th>GST (5%):</th>
+                  <td id="gst">₹0</td>
                 </tr>
+                <tr>
+                  <th>Extra tax:</th>
+                  <td id="extra-tax">₹10</td>
+                </tr> -->
                 <tr>
                   <th>Total amount:</th>
-                  <td>203/-</td>
+                  <td id="total-amount">₹0</td>
                 </tr>
               </table>
               <div class="header1">
@@ -172,5 +155,45 @@
           </div>
     </section>
     
+    <script>
+        //function for loading token
+        function generateToken() {
+            const randomToken = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('token').innerText = `#${randomToken}`;
+        }
+        // Function to load the cart from localStorage and update the payment page
+        function loadCartForPayment() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderSummaryTable = document.getElementById('order-summary');
+            let subtotal = 0;
+
+            // Loop through cart items and update the order summary
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                // Create a new row for each item
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>x${item.quantity}</td>
+                    <td>₹${itemTotal}</td>
+                `;
+                orderSummaryTable.appendChild(row);
+            });
+
+            // Update bill details
+            const gst = subtotal * 0.05;
+            const extraTax = 10;
+            const totalAmount = subtotal + gst + extraTax;
+
+            document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('gst').textContent = `₹${gst.toFixed(2)}`;
+            document.getElementById('total-amount').textContent = `₹${totalAmount.toFixed(2)}`;
+        }
+
+        // Call the function when the page loads
+        window.onload = loadCartForPayment;
+    </script>
 </body>
 </html>

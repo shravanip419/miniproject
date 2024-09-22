@@ -1,8 +1,10 @@
-
+body{
+  background-image: url(order.jpg);
+}
 
 #main {
     font-family: "Bree Serif",serif;
-    background-color: #f5f5dc;
+    /* background-color: #f5f5dc; */
     display: flex;
     justify-content: center;
     align-items: center;
