@@ -19,6 +19,7 @@
                 <input type="password" id="password" placeholder="Enter password" required>
 
                 <button type="submit" class="btn">Login</button>
+                <div id="errorMessage" style="color: red;"></div>
             </form>
             <p class="center">Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
@@ -33,6 +34,9 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+  const errorMessage = document.getElementById("errorMessage");
+
+  errorMessage.textContent="";
 
   if (!username || !password) {
     alert("Please fill in both fields.");
@@ -49,6 +53,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
       event.preventDefault();
       window.location.href = "signup.html"; // Redirect to sign up page 
     } 
+    else if (userExists)
+    {
+      errorMessage.textContent = "Username not available. Kindly choose another!";
+    }
     else if (userExists.password !== password)
     {
       alert("Invalid credentials. Please check your password.");

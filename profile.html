@@ -21,6 +21,8 @@
                 <!-- Add more profile fields as needed -->
             </ul>
         </div>
+        <button type="submit" id="logoutbtn">Log Out</button>
+        <div id="message"></div>
     </section>
 
     <script>
@@ -100,6 +102,29 @@ function displayProfileInfo() {
 document.addEventListener('DOMContentLoaded', displayProfileInfo);
 
 
+    </script>
+
+    <script class="logoutbtn">
+      
+      document.getElementById("logoutbtn").addEventListener("click", function(event){
+      event.preventDefault();
+      const confirmLogout = confirm("Sure you don't want to order anymore?")
+      if(confirmLogout)
+      {
+          localStorage.removeItem('loggedInUser');
+          const message = document.getElementById("message");
+          message.innerHTML="Log out successful! Redirecting....";
+          setTimeout(function(){
+            window.location.href = 'firstpage.html';
+          },2000);
+      }  
+      
+      else{
+        console.log("False alarm it is! Continue surfing!!");
+        // event.preventDefault();
+        window.location.href='firstpage1.html';
+      }
+    });
     </script>
     
 </body>
