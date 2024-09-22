@@ -1,0 +1,113 @@
+/* Importing the Fredoka font */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    color: #fff;
+}
+
+.game {
+    text-align: center;
+    background-color: #ffffff22;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.status {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ffeb3b;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+#scoreX, #scoreO {
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em; /* Increased font size for visibility */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background-color: #ffeb3b;
+}
+
+.cell.X {
+    color: #f44336; /* Red color for X */
+}
+
+.cell.O {
+    color: #4CAF50; /* Green color for O */
+}
+
+/* Animation for smoother appearance */
+.cell.X, .cell.O {
+    transform: scale(1.1); /* Makes the X and O stand out */
+    transition: transform 0.3s ease;
+}
+
+.cell.X:hover, .cell.O:hover {
+    transform: scale(1.2); /* Slightly enlarges on hover */
+}
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+button:focus {
+    outline: none;
+}
