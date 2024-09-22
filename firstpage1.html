@@ -181,10 +181,39 @@ spaceBetween:5,
     });
 
 
-    function isLoggedin()
-    {
+    // document.getElementsByClassName("btn").addEventListener("click",function(event){
+    // event.preventDefault();
+    // const token=JSON.parse(localStorage.getItem('token'));
+    // if(!token)
+    // {
+    //     alert("Kindly login first!");
+    //     window.location.href='login1.html';
+    // }   
+    // else{
+    //     window.location.href='category1.html';
+    // }
+    // }
+// );
 
-    }
+
+// Selecting all elements with the class "btn"
+const buttons = document.getElementsByClassName("btn");
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function(event) {
+        event.preventDefault();
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        
+        if (!loggedInUser) {
+            alert("Kindly login first!");
+            window.location.href = 'login1.html'; // Redirect to login page
+        } 
+        else {
+            window.location.href = 'category1.html'; // Redirect to category page
+        }
+    });
+}
+
 </script>
 
 </body>
