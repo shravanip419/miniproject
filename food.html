@@ -264,128 +264,155 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', () => {
-            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
-            // Show admin panel if the admin is logged in
-            if (loggedInUser && loggedInUser.username === 'admin@dbit') {
-                document.getElementById('admin-panel').style.display = 'block';
-            }
+        // Show admin panel if the admin is logged in
+        if (loggedInUser && loggedInUser.username === 'admin@dbit') {
+            document.getElementById('admin-panel').style.display = 'block';
+        }
 
-            // Handle adding new food items
-            const foodForm = document.getElementById('addFoodForm');
-            foodForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                
-                const foodName = document.getElementById('foodName').value;
-                const foodPrice = document.getElementById('foodPrice').value;
-                const foodImage = document.getElementById('foodImage').files[0];
-                
-                if (foodImage) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const imageUrl = e.target.result;
+        // Handle adding new food items
+        const foodForm = document.getElementById('addFoodForm');
+        foodForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const foodName = document.getElementById('foodName').value;
+            const foodPrice = document.getElementById('foodPrice').value;
+            const foodImage = document.getElementById('foodImage').files[0];
+            
+            if (foodImage) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result;
 
-                        // Create new food item object
-                        const newItem = {
-                            name: foodName,
-                            price: foodPrice,
-                            image: imageUrl
-                        };
-
-                        // Save new item in localStorage
-                        let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-                        menuItems.push(newItem);
-                        localStorage.setItem('menuItems', JSON.stringify(menuItems));
-
-                        // Update the menu display
-                        addFoodToMenu(newItem);
-
-                        // Reset the form
-                        foodForm.reset();
+                    // Create new food item object
+                    const newItem = {
+                        id: Date.now(),  // Add a unique ID for deletion
+                        name: foodName,
+                        price: foodPrice,
+                        image: imageUrl
                     };
-                    reader.readAsDataURL(foodImage);
-                }
-            });
 
-            // Function to add new food items to the menu
-            function addFoodToMenu(item) {
-                const container = document.querySelector('.box-container');
-                const newBox = document.createElement('div');
-                newBox.classList.add('box');
+                    // Save new item in localStorage
+                    let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+                    menuItems.push(newItem);
+                    localStorage.setItem('menuItems', JSON.stringify(menuItems));
 
-                newBox.innerHTML = `
-                    <div class="image">
-                        <img src="${item.image}" alt="${item.name}">
-                        <div class="icons">
-                            <a href="#" class="fas fa-share"></a>
-                            <a href="#" class="cart-btn fas fa-shopping-cart"></a>
-                            <a href="#" class="fas fa-heart"></a>
-                        </div>
+                    // Update the menu display
+                    addFoodToMenu(newItem);
+
+                    // Reset the form
+                    foodForm.reset();
+                };
+                reader.readAsDataURL(foodImage);
+            }
+        });
+
+        // Function to add new food items to the menu
+        function addFoodToMenu(item) {
+            const container = document.querySelector('.box-container');
+            const newBox = document.createElement('div');
+            newBox.classList.add('box');
+
+            newBox.innerHTML = `
+                <div class="image">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="icons">
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
-                    <div class="content">
-                        <h3>${item.name}</h3>
-                        <div class="price">₹${item.price}</div>
+                </div>
+                <div class="content">
+                    <h3>${item.name}</h3>
+                    <div class="price">₹${item.price}</div>
+                    <button class="delete-btn" data-id="${item.id}">Delete</button>
+                </div>
+            `;
+            
+            container.appendChild(newBox);
+
+            // Add event listener to delete button
+            newBox.querySelector('.delete-btn').addEventListener('click', () => {
+                deleteMenuItem(item.id);
+            });
+        }
+
+        // Load existing menu items from localStorage on page load
+        const savedItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+        savedItems.forEach(item => addFoodToMenu(item));
+
+        // Function to delete menu item
+        function deleteMenuItem(id) {
+            let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            menuItems = menuItems.filter(item => item.id !== id);
+            localStorage.setItem('menuItems', JSON.stringify(menuItems));
+            document.querySelector('.box-container').innerHTML = '';
+            menuItems.forEach(item => addFoodToMenu(item));
+        }
+
+        // Add to cart functionality
+        function addToCart(item, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let itemExists = cart.find(cartItem => cartItem.name === item);
+            if (itemExists) {
+                itemExists.quantity += 1;
+            } else {
+                cart.push({ name: item, price: price, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${item} has been added to your cart!`);
+        }
+
+        document.querySelectorAll('.cart-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const box = event.target.closest('.box');
+                const itemName = box.querySelector('.content h3').innerText;
+                const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
+                addToCart(itemName, itemPrice);
+            });
+        });
+
+        // Cart functionality with delete feature
+        const cartContainer = document.querySelector('.bg-[#f5f5dc] p-4 w-1/4');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function renderCartItems() {
+            cartContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItemHTML = `
+                    <div class="flex justify-between mb-2">
+                        <p>${item.name}</p>
+                        <p>₹${item.price} x ${item.quantity}</p>
+                        <button class="remove-cart-item" data-index="${index}">Remove</button>
                     </div>
                 `;
-                
-                container.appendChild(newBox);
-            }
+                cartContainer.innerHTML += cartItemHTML;
+            });
 
-            // Load existing menu items from localStorage on page load
-            const savedItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            savedItems.forEach(item => addFoodToMenu(item));
-
-            // Add to cart functionality (existing code)
-            function addToCart(item, price) {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let itemExists = cart.find(cartItem => cartItem.name === item);
-                if (itemExists) {
-                    itemExists.quantity += 1;
-                } else {
-                    cart.push({ name: item, price: price, quantity: 1 });
-                }
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert(`${item} has been added to your cart!`);
-            }
-
-            document.querySelectorAll('.cart-btn').forEach(button => {
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-cart-item').forEach(button => {
                 button.addEventListener('click', (event) => {
-                    const box = event.target.closest('.box');
-                    const itemName = box.querySelector('.content h3').innerText;
-                    const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
-                    addToCart(itemName, itemPrice);
+                    const index = event.target.getAttribute('data-index');
+                    deleteCartItem(index);
                 });
             });
-            // Get the cart container element
-const cartContainer = document.querySelector('.bg-[#f5f5dc] p-4 w-1/4');
+        }
 
-// Get the cart from localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function deleteCartItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCartItems();
+        }
 
-// Function to render cart items
-function renderCartItems() {
-  cartContainer.innerHTML = '';
-  cart.forEach((item) => {
-    const cartItemHTML = `
-      <div class="flex justify-between mb-2">
-        <p>${item.name}</p>
-        <p>₹${item.price} x ${item.quantity}</p>
-      </div>
-    `;
-    cartContainer.innerHTML += cartItemHTML;
-  });
-}
+        renderCartItems();
 
-// Render cart items on page load
-renderCartItems();
-
-// Add event listener to update cart when item is added
-document.addEventListener('storage', () => {
-  cart = JSON.parse(localStorage.getItem('cart')) || [];
-  renderCartItems();
-});
-
+        document.addEventListener('storage', () => {
+            cart = JSON.parse(localStorage.getItem('cart')) || [];
+            renderCartItems();
         });
+
+    });
     </script>
 </body>
 </html>
