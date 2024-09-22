@@ -37,7 +37,7 @@
         <h1 class="h-primary center">
             <pre>
 
-                
+
             </pre>
             Our Services</h1>
         <div id="services">
@@ -72,6 +72,7 @@
             </div>
         </div>
     </section>
+<!-- <<<<<<< HEAD -->
 
     <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
@@ -93,6 +94,44 @@
             <div class="swiper-slide">
                 <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
             <h2>
+<!-- ======= -->
+    <section id="admin-controls" style="display: none;">
+        <button id="saveChanges" class="btn">Save Changes</button>
+        <button id="resetChanges" class="btn">Reset to Default</button>
+    </section>
+
+
+
+<!-- <<<<<<< HEAD -->
+<!-- ======= -->
+<!-- <<<<<<< HEAD -->
+<!-- >>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489 -->
+
+
+
+
+
+<!-- Swiper Section -->
+<div class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Box 1">
+            <h2  class="editable" id="h2-4">
+                Reccomending the canteen's most famous South Indian breakfast pallete!
+                All your favourite dishes crafted deliciously  to give you the best taste ever.
+                A mixture of the divine spices of our southern region, brought to the bustling lives
+                of ours in Mumbai - taste the delicious meal right now! Order now!
+            </h2>
+            <p><pre>
+
+
+
+            </pre></p>
+        </div>
+        <div class="swiper-slide">
+            <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
+            <h2  class="editable" id="h2-5">
+>>>>>>> 4ccc6d43c8f8e5d97b63063d7da3ebf5cc09b19f
                 The piping hotness of a puri tossed together with the warm and comforting bhaji masala! 
                 Could there BE any better combination? Taste the magic of the Puri Masala today!
                 Order now, and savor it while the puri is steaming hot - only the best way to have it!
@@ -120,9 +159,28 @@
             </div>
             <!-- Add more slides here -->
         </div>
+<!-- <<<<<<< HEAD -->
         <div class="swiper-pagination"></div>
+<!-- ======= -->
+        <div class="swiper-slide">
+            <img src="Vada Snap.jfif" alt="Box 3">
+            <h2  class="editable" id="h2-6">
+                And here comes the star of the menu - the Medu vada! Known to be sold out even before the breakfast bell hits our ears. 
+                The crunchyness outside, the soft dough cooked appropriately well on the inside - heaven in a plate to describe it!
+                Order this famous yet short lived dish of our canteen to secure your order before it sells out!
+            </h2>
+            <p><pre>
+
+
+
+
+                
+            </pre></p>
+        </div>
+<!-- >>>>>>> 4ccc6d43c8f8e5d97b63063d7da3ebf5cc09b19f -->
     </div>
 
+<!-- <<<<<<< HEAD -->
         <!-- Only show the edit button if the user is admin -->
         <script>
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -134,7 +192,7 @@
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     
         <script>
-            const swiper = new Swiper('.mySwiper', {
+            const Swiper = new Swiper('.mySwiper', {
                 autoplay: {
                     delay: 5000, // 3 seconds delay
                     disableOnInteraction: false, // Continue autoplay after user interactions
@@ -176,3 +234,119 @@
         </script>
     </body>
     </html>
+=======
+
+
+<!-- <script src="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper('.swiper-container', {
+pagination: {
+el: '.swiper-pagination',
+clickable: true,
+},
+slidesPerView:1,
+spaceBetween:5,
+});
+    });
+</script> -->
+<!-- Script FOR SWIPE -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<script>
+    const swiper = new Swiper('.mySwiper', {
+        autoplay: {
+            delay: 5000, // 3 seconds delay
+            disableOnInteraction: false, // Continue autoplay after user interactions
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        loop: true, // Loop through slides
+    });
+
+
+    // document.getElementsByClassName("btn").addEventListener("click",function(event){
+    // event.preventDefault();
+    // const token=JSON.parse(localStorage.getItem('token'));
+    // if(!token)
+    // {
+    //     alert("Kindly login first!");
+    //     window.location.href='login1.html';
+    // }   
+    // else{
+    //     window.location.href='category1.html';
+    // }
+    // }
+// );
+document.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            const editableElements = document.querySelectorAll("h2.editable");
+            const saveButton = document.getElementById("saveChanges");
+            const resetButton = document.getElementById("resetChanges");
+            const adminControls = document.getElementById("admin-controls");
+
+            // Load saved h2 content from localStorage (for all users)
+            editableElements.forEach(h2 => {
+                const savedContent = localStorage.getItem(h2.id);
+                if (savedContent) {
+                    h2.textContent = savedContent;
+                }
+            });
+
+            // If the logged-in user is the admin, show admin controls
+            if (loggedInUser && loggedInUser.username === "admin@dbit") {
+                adminControls.style.display = "block"; // Show the Save and Reset buttons
+                editableElements.forEach(h2 => {
+                    h2.setAttribute("contenteditable", "true");
+                    h2.style.border = "1px dashed #ccc"; // Visual indication
+                });
+
+                alert("You are logged in as admin. You can edit the content.");
+            }
+
+            // Save Changes: Save all edited h2 tags to localStorage
+            saveButton.addEventListener("click", function() {
+                editableElements.forEach(h2 => {
+                    localStorage.setItem(h2.id, h2.textContent);
+                });
+                alert("Changes saved successfully.");
+            });
+
+            // Reset Changes: Clear all saved h2 content from localStorage and restore defaults
+            resetButton.addEventListener("click", function() {
+                if (confirm("Are you sure you want to reset all changes?")) {
+                    editableElements.forEach(h2 => {
+                        localStorage.removeItem(h2.id); // Remove saved content from localStorage
+                        window.location.reload(); // Reload the page to restore default content
+                    });
+                }
+            });
+        });
+
+
+// Selecting all elements with the class "btn"
+const buttons = document.getElementsByClassName("btn");
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function(event) {
+        event.preventDefault();
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        
+        if (!loggedInUser) {
+            alert("Kindly login first!");
+            window.location.href = 'login1.html'; // Redirect to login page
+        } 
+        else {
+            window.location.href = 'category1.html'; // Redirect to category page
+        }
+    });
+}
+
+</script>
+
+</body>
+</html>
+>>>>>>> 4ccc6d43c8f8e5d97b63063d7da3ebf5cc09b19f
