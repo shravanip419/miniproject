@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusEats</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.css">
+    <title>Food Products</title>
+    <link rel="stylesheet" href="food.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+
     <nav id="navbar">
         <div id="logo">
             <img src="logo.jpg" alt="CampusEats">
@@ -19,120 +19,373 @@
             <li class="item"><a href="firstpage1.html">Home</a></li>
             <li class="item"><a href="category1.html">Menu</a></li>
             <li class="item"><a href="food.html">Today's Specials</a></li>
-            <li class="item"><a href="profile.html">Profile</a></li>
+            <li class="item"><a href="profile.html">My Profile</a></li>
         </ul>
     </nav>
-    
-    <section id="home">
-        <h1 class="h-primary center">Welcome to<h1 class="title">CampusEats</h1></h1>
-        <button class="btn">Order now!</button>
-    </section>
 
-    <section id="services-container">
-        <h1 class="h-primary center">Our Services</h1>
-        <div id="services">
-            <div class="box">
-                <h2 class="editable" id="h2-1">Food Ordering</h2>
-                <p class="center">Choose your favourite items from the menu...</p>
-            </div>
-            <div class="box">
-                <img src="img/2.png" alt="">
-                <h2 class="editable" id="h2-2">Order tokens provided</h2>
-                <p class="center">Once you have done placing the order...</p>
-            </div>
-            <div class="box">
-                <img src="img/3.png" alt="">
-                <h2 class="editable" id="h2-3">Play games!</h2>
-                <p class="center">Are you already in the canteen...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Save and Reset buttons for the admin -->
-    <section id="admin-controls" style="display: none;">
-        <button id="saveChanges" class="btn">Save Changes</button>
-        <button id="resetChanges" class="btn">Reset to Default</button>
-    </section>
-
-    <div class="swiper-container mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Box 1">
-                <h2 class="editable" id="h2-4">Recommending the canteen's most famous South Indian breakfast palette...</h2>
-            </div>
-            <div class="swiper-slide">
-                <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
-                <h2 class="editable" id="h2-5">The piping hotness of a puri tossed together with bhaji masala...</h2>
-            </div>
-            <div class="swiper-slide">
-                <img src="Vada Snap.jfif" alt="Box 3">
-                <h2 class="editable" id="h2-6">The Medu vada! Known to be sold out even before the breakfast bell...</h2>
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
+    <div class="cart-icon">
+        <a href="cart.html" class="fas fa-shopping-cart"></a>
     </div>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</section>
+    
+<section class="products" id="products">
+    <h1 class="heading">DBIT <span>Canteen Menu</span></h1>
+    <div class="box-container">
+
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="Paneer Kathi Rolls Recipe - khaddoroshik.jfif" alt="idli sambar">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3> Paneer roll</h3>
+                <div class="price">₹35</div>
+            </div>
+        </div>
+
+        
+        
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="Pav Bhaji Recipe (Mumbai Street-style) - Cooking Carnival.jfif" alt="Burger with Cheese">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Pav Bhaji</h3>
+                <div class="price">₹60</div>
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <span class="discount">-8%</span>
+            <div class="image">
+                <img src="Crispy Masala Dosa.jfif" alt="Burger with Cheese">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Masala Dosa</h3>
+                <div class="price">₹80</div>
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="Authentic Butter Chicken (Murgh Makhani) - Masala and Chai.jfif" alt="Burger with Cheese">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Butter Chicken</h3>
+                <div class="price">₹150</div>
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="idli-sambar-vada-coconut-chutney-south-indian-breakfast_57665-7256.avif" alt="Burger with Cheese">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Idli sambar</h3>
+                <div class="price">₹110</div>
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="food2.jfif" alt="Noodle Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Noodle frankie</h3>
+                <div class="price">₹50</div>
+            </div>
+        </div>
+       
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="food3.jfif" alt="Veg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Snack</h3>
+                <div class="price">₹50</div>
+            </div>
+        </div>
+
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="food5.jfif" alt="Veg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Sweet</h3>
+                <div class="price">₹55</div>
+            </div>
+        </div>
+        
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="food4.jfif" alt="Egg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Tea</h3>
+                <div class="price">₹10</div>
+            </div>
+        </div>
+        
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="6 Classic North Indian Veg Lunch Recipes That Rule Our Heart.jfif" alt="Egg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Rajma</h3>
+                <div class="price">₹45</div>
+            </div>
+        </div>
+        
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="Lunch.jfif" alt="Egg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Dal rice</h3>
+                <div class="price">₹50</div>
+            </div>
+        </div>
+        
+        
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="download.jfif" alt="Egg Frankie">
+                <div class="icons">
+                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Sada Dosa</h3>
+                <div class="price">₹50</div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+</section>
+
+    <!-- Admin Panel (Visible only to admin users) -->
+    <section id="admin-panel" style="display:none;">
+        <h2>Add New Food Item</h2>
+        <form id="addFoodForm">
+            <label for="foodName">Food Name</label>
+            <input type="text" id="foodName" placeholder="Enter food name" required>
+
+            <label for="foodPrice">Price (₹)</label>
+            <input type="number" id="foodPrice" placeholder="Enter food price" required>
+
+            <label for="foodImage">Upload Image</label>
+            <input type="file" id="foodImage" accept="image/*" required>
+
+            <button type="submit" class="btn">Save Changes</button>
+            <button type="reset" class="btn">Reset</button>
+        </form>
+    </section>
 
     <script>
-        const swiper = new Swiper('.mySwiper', {
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            loop: true,
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
+        
+        document.addEventListener('DOMContentLoaded', () => {
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-            const editableElements = document.querySelectorAll("h2.editable");
-            const saveButton = document.getElementById("saveChanges");
-            const resetButton = document.getElementById("resetChanges");
-            const adminControls = document.getElementById("admin-controls");
 
-            // Load saved h2 content from localStorage (for all users)
-            editableElements.forEach(h2 => {
-                const savedContent = localStorage.getItem(h2.id);
-                if (savedContent) {
-                    h2.textContent = savedContent;
-                }
-            });
-
-            // If the logged-in user is the admin, show admin controls
-            if (loggedInUser && loggedInUser.username === "admin@dbit.in") {
-                adminControls.style.display = "block"; // Show the Save and Reset buttons
-                editableElements.forEach(h2 => {
-                    h2.setAttribute("contenteditable", "true");
-                    h2.style.border = "1px dashed #ccc"; // Visual indication
-                });
-
-                alert("You are logged in as admin. You can edit the content.");
+            // Show admin panel if the admin is logged in
+            if (loggedInUser && loggedInUser.username === 'admin@dbit') {
+                document.getElementById('admin-panel').style.display = 'block';
             }
 
-            // Save Changes: Save all edited h2 tags to localStorage
-            saveButton.addEventListener("click", function() {
-                editableElements.forEach(h2 => {
-                    localStorage.setItem(h2.id, h2.textContent);
-                });
-                alert("Changes saved successfully.");
-            });
+            // Handle adding new food items
+            const foodForm = document.getElementById('addFoodForm');
+            foodForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const foodName = document.getElementById('foodName').value;
+                const foodPrice = document.getElementById('foodPrice').value;
+                const foodImage = document.getElementById('foodImage').files[0];
+                
+                if (foodImage) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imageUrl = e.target.result;
 
-            // Reset Changes: Clear all saved h2 content from localStorage and restore defaults
-            resetButton.addEventListener("click", function() {
-                if (confirm("Are you sure you want to reset all changes?")) {
-                    editableElements.forEach(h2 => {
-                        localStorage.removeItem(h2.id); // Remove saved content from localStorage
-                        window.location.reload(); // Reload the page to restore default content
-                    });
+                        // Create new food item object
+                        const newItem = {
+                            name: foodName,
+                            price: foodPrice,
+                            image: imageUrl
+                        };
+
+                        // Save new item in localStorage
+                        let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+                        menuItems.push(newItem);
+                        localStorage.setItem('menuItems', JSON.stringify(menuItems));
+
+                        // Update the menu display
+                        addFoodToMenu(newItem);
+
+                        // Reset the form
+                        foodForm.reset();
+                    };
+                    reader.readAsDataURL(foodImage);
                 }
             });
+
+            // Function to add new food items to the menu
+            function addFoodToMenu(item) {
+                const container = document.querySelector('.box-container');
+                const newBox = document.createElement('div');
+                newBox.classList.add('box');
+
+                newBox.innerHTML = `
+                    <div class="image">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="icons">
+                            <a href="#" class="fas fa-share"></a>
+                            <a href="#" class="cart-btn fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-heart"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>${item.name}</h3>
+                        <div class="price">₹${item.price}</div>
+                    </div>
+                `;
+                
+                container.appendChild(newBox);
+            }
+
+            // Load existing menu items from localStorage on page load
+            const savedItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            savedItems.forEach(item => addFoodToMenu(item));
+
+            // Add to cart functionality (existing code)
+            function addToCart(item, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let itemExists = cart.find(cartItem => cartItem.name === item);
+                if (itemExists) {
+                    itemExists.quantity += 1;
+                } else {
+                    cart.push({ name: item, price: price, quantity: 1 });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${item} has been added to your cart!`);
+            }
+
+            document.querySelectorAll('.cart-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const box = event.target.closest('.box');
+                    const itemName = box.querySelector('.content h3').innerText;
+                    const itemPrice = box.querySelector('.price').innerText.replace('₹', '');
+                    addToCart(itemName, itemPrice);
+                });
+            });
+            // Get the cart container element
+const cartContainer = document.querySelector('.bg-[#f5f5dc] p-4 w-1/4');
+
+// Get the cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to render cart items
+function renderCartItems() {
+  cartContainer.innerHTML = '';
+  cart.forEach((item) => {
+    const cartItemHTML = `
+      <div class="flex justify-between mb-2">
+        <p>${item.name}</p>
+        <p>₹${item.price} x ${item.quantity}</p>
+      </div>
+    `;
+    cartContainer.innerHTML += cartItemHTML;
+  });
+}
+
+// Render cart items on page load
+renderCartItems();
+
+// Add event listener to update cart when item is added
+document.addEventListener('storage', () => {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  renderCartItems();
+});
+
         });
     </script>
-
 </body>
 </html>
