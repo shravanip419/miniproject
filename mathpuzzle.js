@@ -37,7 +37,7 @@ function generatePattern() {
 
 // Reset the timer to 10 seconds
 function resetTimer() {
-    timeLeft = 10;  // Set timer to 10 seconds for each round
+    timeLeft = 300;  // Set timer to 300 seconds for each round
     document.getElementById('timer').innerText = `Time left: ${timeLeft}s`;
 }
 
