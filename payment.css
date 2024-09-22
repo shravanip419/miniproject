@@ -75,7 +75,7 @@ body{
   }
   
   .container .token-title{
-    height: 250px;
+    height: 300px;
     width: 250px;
     border: none;
     background-color: #f5f5dc;
@@ -120,6 +120,23 @@ body{
     text-align: center;
     text-decoration: none;
   }
+
+  .cart-back {
+    /* align-items: center;
+    justify-items: center;*/
+    border-radius: 20px; 
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    background-color: #e0c8a1;
+    color: #333; /* Keep this for dark gray text */
+    text-decoration: none; /* This will remove the underline */
+    height: 50px;
+}
+
   
   .header {
     font-size: 35px;

@@ -16,7 +16,7 @@
             display: flex;
             align-items: center;
             background-color: #2d291c;
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -77,6 +77,8 @@
                 <br>
                 NO.
                 <br>
+                <span id="token" class="text-2xl font-bold">00001</span><br />
+                <button onclick="generateToken()" class="mt-6 py-2 px-6">Get Token</button>
                 <!-- <div>
                   <span id="token">#12345</span>
               </div>
@@ -119,7 +121,7 @@
               </div>
               <!-- Bill details table -->
               <table class="table" id="bill-details">
-                <!-- <tr>
+                <tr>
                   <th>Subtotal:</th>
                   <td id="subtotal">₹0</td>
                 </tr>
@@ -130,19 +132,22 @@
                 <tr>
                   <th>Extra tax:</th>
                   <td id="extra-tax">₹10</td>
-                </tr> -->
+                </tr>
                 <tr>
                   <th>Total amount:</th>
                   <td id="total-amount">₹0</td>
                 </tr>
               </table>
-              <div class="header1">
+              <!-- <div class="header1">
                 Mode of Payment:
               </div>
               <div class="content">
                 <p>Amount paid with GPay</p>
                 <p>Transaction ID: XXXXXXX1505</p>
                 <p>Order ID: 22300123</p>
+              </div> -->
+              <div class="cart-back">
+                <a href="cart.html" class="cart">View cart</a>
               </div>
               
               <div class="logo">

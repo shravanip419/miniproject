@@ -9,6 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="order.css" rel="stylesheet">
     <style>
         :root {
@@ -37,7 +39,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0.5); /* Adjust opacity here */
+            /* background: rgba(255, 255, 255, 0.5); Adjust opacity here */
             z-index: -1; /* Make sure it stays behind the content */
             }
 
@@ -91,17 +93,34 @@
             text-decoration: none;
         }
 
-
+        .header {
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: "Great Vibes";
+        }
 
         /* Custom styling for the layout */
         .main-container {
             display: flex;
             justify-content: space-between;
-            max-width: 1200px;
+            width: 900px;
             margin: 0 auto;
         }
 
-        .token-box, .order-summary-box, .bill-box {
+        .token-box {
+            background-color: #9b795c;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            font-size: large;
+        }
+
+        .order-summary-box{
+            height: 550px;
             background-color: #9b795c;
             padding: 20px;
             border-radius: 16px;
@@ -109,14 +128,23 @@
             transition: transform 0.2s ease;
         }
 
-        .token-box:hover, .order-summary-box:hover, .bill-box:hover {
-            transform: scale(1.05);
+        .bill-box{
+            background-color: #9b795c;
+            padding: 20px;
+            height: 250px;
+            border-radius: 16px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
         }
+
+        /* .token-box:hover, .order-summary-box:hover, .bill-box:hover {
+            transform: scale(1.05);
+        } */
 
         .token-box {
             flex: 1;
             padding: 40px;
-            height: 80vh;
+            height: 550px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -141,25 +169,34 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: xx-large;
+            text-shadow: 3px 3px 4px#f5f5dc;
         }
 
         h2 {
             font-size: 1.75rem;
+            color: #f5f5dc;
+            position: center;
+            text-align: center;
+            justify-content: center;
+            margin-top: 50px;
+            font-size: 3.5rem;
         }
 
         button {
-            background-color: #2d291c;
+            background-color: #f5f5dc;
             color: white;
             border: none;
             border-radius: 12px;
-            padding: 12px 24px;
+            /* padding: 12px 24px; */
             font-size: 1rem;
             transition: background-color 0.3s ease;
+            padding-left: 50px;
+            
         }
 
         button:hover {
-            background-color: #a0522d;
+            background-color: #9b795c;
         }
 
         /* Flex styling */
@@ -184,7 +221,7 @@
             overflow-y: auto;
         }
 
-        .right-section::-webkit-scrollbar {
+        /* .right-section::-webkit-scrollbar {
             width: 8px;
         }
 
@@ -195,7 +232,56 @@
 
         .right-section::-webkit-scrollbar-track {
             background-color: #f9ebe0;
+        } */
+
+        .token{ 
+            height: 750px;
+            width: 350px;
+            background-color: #2d291c;
+            color: #f5f5dc;
+            border-radius: 15px;
+            align-items: center;
+            position: center;
+            justify-content: center;
+            /* margin-top: ; */
         }
+
+        .token h2{
+            font-size: 1.5rem;
+            display: flex;
+            align-self: center;
+            margin-top: 100px;
+            color: #2d291c;
+            font-family: "Oswald",serif;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto; /* Change from a fixed height to auto */
+            overflow: hidden; /* Prevents the vertical scrollbar */
+        }
+
+        .order-summary-box {
+            margin-bottom: 20px;
+            max-height: none; /* Allow the order summary to grow without restriction */
+            overflow: hidden; /* Prevents the scrollbar */
+        }
+
+        .inner-token{
+            height: 250px;
+            width: 250px;
+            background-color: #F5F5DC;
+            color: #2d291c;
+            border-radius: 15px;
+            margin-left: 50px;
+            font-family: "Oswald",serif;
+            padding-top: 3px;
+            margin-top: 100px;
+        }
+
     </style>
 </head>
 
@@ -210,43 +296,55 @@
             <li class="item"><a href="category1.html">Menu</a></li>
             <li class="item"><a href="food.html">Today's Specials</a></li>
             <li class="item"><a href="profile.html">Profile</a></li>
-            <!-- <li class="item"><a href="#">Cart</a></li>
-            <li class="item"><a href="#">Profile</a></li> -->
+            <!-- <li class="item"><a href="cart.html">Cart</a></li>
+            <li class="item"><a href="profile.html">Profile</a></li> -->
         </ul>
         
     </nav>
+<div class="content">
     <div class="flex flex-col min-h-screen items-center justify-center p-6">
-        <h1 class="text-3xl font-bold mb-6">Order Confirmation</h1>
+        <h1 class="text-5xl font-bold mb-6">Order Confirmation</h1>
 
         <div class="main-container">
             <!-- Token Box -->
             <div class="token-box shadow-lg">
-                <h2 class="text-xl font-bold mb-4">Your Token</h2>
-                <div class="flex justify-center items-center">
-                    <span id="token" class="text-2xl font-bold">#12345</span>
-                </div>
-                <button onclick="generateToken()" class="mt-6 py-2 px-6">Change Token</button>
+               <div class="token">
+                    <div class="inner-token">
+                        <h2 class="text-xl mb-4">Your Token</h2> 
+                        <div class="flex justify-center items-center">
+                        <span id="token" class="text-2xl font-bold">00001</span>
+                    </div>
+                    <button onclick="generateToken()" class="mt-6 py-2 px-6">Get Token</button>
+                    </div>
+               </div> 
+                
             </div>
-
+        
             <!-- Right Section: Order Summary & Bill -->
             <div class="right-section">
+                
                 <!-- Order Summary Box -->
                 <div class="order-summary-box shadow-lg">
+                    <div class="header">
+                        Thank You
+                        <br>
+                        For ordering with us
+                      </div>
                     <h2 class="text-xl font-bold mb-4">Order Summary</h2>
                     <div id="order-summary"></div>
-                </div>
-
-                <!-- Bill Box -->
-                <div class="bill-box shadow-lg">
+                
                     <h2 class="text-xl font-bold mb-4">Total Bill</h2>
                     <div class="flex justify-between items-center">
                         <span class="font-bold text-xl">Total:</span>
                         <span id="total-amount" class="font-bold text-xl">₹0.00</span>
+                        <hr />
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <script>
         function generateToken() {
