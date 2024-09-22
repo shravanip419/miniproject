@@ -20,8 +20,7 @@
         <ul>
             <!-- Home -->
             <li class="item"><a href="firstpage.html">Home</a></li>
-            <!-- Services -->
-            <li class="item"><a href="#">Our Services</a></li>
+            
             <!-- Menu -->
             <li class="item"><a href="category1.html">Menu</a></li>
             <!-- Today's Specials -->
@@ -35,7 +34,7 @@
         <h1 class="h-primary center" >Welcome to CampusEats! 
            
         </h1>
-        <p style="color: #f5f5f5; font-family: 'Times New Roman', Times, serif; font-size: xx-large; text-align: center;">The only website you ever need to suffice your college cravings!
+        <p style="color: #320a0a; font-family: 'Times New Roman', Times, serif; font-size: xx-large; text-align: center;">The only website you ever need to suffice your college cravings!
             <br>Scroll down and explore our options!!
         </p>
         <pre>
@@ -88,24 +87,36 @@
 <!-- Swiper section -->
 <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Delicious South Indian Breakfast Thali">
-            <h2>
-                Recommending the canteen's most famous South Indian breakfast palette! A mixture of divine spices from our southern region, brought to the bustling lives of ours in Mumbai. Taste this delicious meal right now! <strong>Order now!</strong>
-            </h2>
+        <div id="slide-content1" class="swiper-slide">
+            
+                <img src="Mouth Watering & Delicious South Indian Breakfast Thali.jfif" alt="Delicious South Indian Breakfast Thali">
+                <h2>
+                    Recommending the canteen's most famous South Indian breakfast palette! A mixture of divine spices from our southern region, brought to the bustling lives of ours in Mumbai. Taste this delicious meal right now! <strong>Order now!</strong>
+                </h2>
         </div>
-        <div class="swiper-slide">
-            <img src="Poori Masala - Spice Up The Curry.jfif" alt="Piping hot Puri with Bhaji Masala">
-            <h2>
-                The piping hotness of a puri tossed together with the warm and comforting bhaji masala! Taste the magic of Puri Masala today! <strong>Order now!</strong>
-            </h2>
+
+        <div id="slide-content2" class="swiper-slide" >
+                
+                    <img src="Poori Masala - Spice Up The Curry.jfif" alt="Piping hot Puri with Bhaji Masala">
+                    <h2>
+                        The piping hotness of a puri tossed together with the warm and comforting bhaji masala! Taste the magic of Puri Masala today! <strong>Order now!</strong>
+                    </h2>
         </div>
-        <div class="swiper-slide">
-            <img src="Vada Snap.jfif" alt="Crispy Medu Vada">
-            <h2>
-                And here comes the star of the menu - the Medu vada! Known to sell out quickly. Order this famous dish to secure your spot before it’s gone!
-            </h2>
-        </div>
+               
+            
+            
+        <div id="slide-content3" class="swiper-slide">
+        
+                    <img src="Vada Snap.jfif" alt="Crispy Medu Vada">
+                    <h2>
+                        And here comes the star of the menu - the Medu vada! Known to sell out quickly. Order this famous dish to secure your spot before it’s gone!
+                    </h2>
+               
+         </div>
+               
+        
+           
+        
     </div>
     <!-- Pagination -->
     <div class="swiper-pagination"></div>
@@ -118,7 +129,7 @@
 <script>
     const swiper = new Swiper('.mySwiper', {
         autoplay: {
-            delay: 100000000, // 3 seconds delay
+            delay: 30000000, // 3 seconds delay
             disableOnInteraction: false, // Continue autoplay after user interactions
         },
         pagination: {
