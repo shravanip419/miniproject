@@ -42,13 +42,14 @@
             <div class="bg-[#f5f5dc] p-4 w-1/4">
                 <h2 class="text-2xl font-bold mb-4">DBIT CANTEEN</h2>
                 <ul class="space-y-2">
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">APPETIZERS</button></li>
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">MAIN COURSE</button></li>
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">DESSERTS</button></li>
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">BEVERAGES</button></li>
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">SNACKS</button></li>
-                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full">EXTRA ADD ONS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">APPETIZERS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">MAIN COURSE</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">DESSERTS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">BEVERAGES</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">SNACKS</button></li>
+                    <li><button class="bg-[#8b4513] text-white py-2 px-4 rounded-full w-full" onclick="window.location.href='food.html'">EXTRA ADD ONS</button></li>
                 </ul>
+                
             </div>
             
             <!-- Menu Items -->
@@ -122,7 +123,7 @@
             });
             document.getElementById('cart-total').innerText = `₹${subtotal.toFixed(2)}`;
         }
-    
+
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const item = cart.find(cartItem => cartItem.name === name);
@@ -147,8 +148,10 @@
                 loadCart();
             }
         }
-    
-        window.onload = loadCart;
+
+       
+            
+        window.onload = loadCart();
     </script>
     
 
