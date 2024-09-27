@@ -144,7 +144,7 @@ body {
     height: 4rem; 
     line-height: 4rem; 
     font-size: 1.5rem; 
-    width: 33.33%;
+    width: 100%;
     background: var(--dark-brown);
     color: white;
     transition: background 0.3s;
