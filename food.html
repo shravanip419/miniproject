@@ -342,7 +342,7 @@
         const savedItems = JSON.parse(localStorage.getItem('menuItems')) || [];
         savedItems.forEach(item => addFoodToMenu(item));
 
-        // Function to delete menu item
+        // Function to delete menu item --FOR ADMIN ONLY--
         function deleteMenuItem(id) {
             let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
             menuItems = menuItems.filter(item => item.id !== id);
@@ -352,7 +352,17 @@
         }
 
         // Add to cart functionality
+
+        const buttons = document.getElementsByClassName("fas fa-shopping-cart");
+
         function addToCart(item, price) {
+                const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+                if(!loggedInUser){
+                    alert("Kindly Login first!");
+                    window.location.href = 'login1.html';
+                }
+            else{
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let itemExists = cart.find(cartItem => cartItem.name === item);
             if (itemExists) {
@@ -362,6 +372,7 @@
             }
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${item} has been added to your cart!`);
+        }
         }
 
         document.querySelectorAll('.cart-btn').forEach(button => {
@@ -413,6 +424,7 @@
         });
 
     });
+   
     </script>
 </body>
 </html>
