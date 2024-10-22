@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
     <style>
         :root{
             --navbar-height: 59px;
@@ -23,7 +24,6 @@
             z-index: 10;
         }
 
-        /* /Logo and Image/ */
         #logo img{
             height: 56px;
             margin:3px 4px;
@@ -53,6 +53,16 @@
             border-radius: 20px;
             text-decoration: none;
         }
+
+        /* Styling for barcode */
+        .barcode-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .barcode {
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -79,11 +89,6 @@
                 <br>
                 <span id="token" class="text-2xl font-bold">00001</span><br />
                 <button onclick="generateToken()" class="mt-6 py-2 px-6">Get Token</button>
-                <!-- <div>
-                  <span id="token">#12345</span>
-              </div>
-              <button onclick="generateToken()">Change Token</button>
-          </div> -->
               </div>
               <div class="token-info">
                 Estimated time: 20 mins
@@ -95,10 +100,6 @@
               </a>
             </div>
             <div class="right-side">
-              <pre>
-
-
-              </pre>
               <div class="header">
                 Thank You
                 <br>
@@ -138,14 +139,11 @@
                   <td id="total-amount">₹0</td>
                 </tr>
               </table>
-              <!-- <div class="header1">
-                Mode of Payment:
+
+              <div class="barcode-container">
+                <svg id="barcode"></svg>
               </div>
-              <div class="content">
-                <p>Amount paid with GPay</p>
-                <p>Transaction ID: XXXXXXX1505</p>
-                <p>Order ID: 22300123</p>
-              </div> -->
+
               <div class="cart-back">
                 <a href="cart.html" class="cart">View cart</a>
               </div>
@@ -161,11 +159,24 @@
     </section>
     
     <script>
-        //function for loading token
+        // Function to generate a random token number
         function generateToken() {
             const randomToken = Math.floor(10000 + Math.random() * 90000);
             document.getElementById('token').innerText = `#${randomToken}`;
+            generateBarcode(`#${randomToken}`);
         }
+
+        // Function to generate the barcode
+        function generateBarcode(token) {
+            JsBarcode("#barcode", token, {
+                format: "CODE128",
+                lineColor: "#000",
+                width: 2,
+                height: 40,
+                displayValue: true
+            });
+        }
+
         // Function to load the cart from localStorage and update the payment page
         function loadCartForPayment() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -198,7 +209,10 @@
         }
 
         // Call the function when the page loads
-        window.onload = loadCartForPayment;
+        window.onload = function() {
+            loadCartForPayment();
+            generateToken();
+        };
     </script>
 </body>
 </html>
