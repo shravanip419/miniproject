@@ -231,7 +231,7 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <script>
-    const swiper = new Swiper('.swiper-container mySwiper', {
+   const swiper = new Swiper('.mySwiper', {
         autoplay: {
             delay: 5000, // 3 seconds delay
             disableOnInteraction: false, // Continue autoplay after user interactions
@@ -242,6 +242,7 @@
         },
         loop: true, // Loop through slides
     });
+
 
             document.addEventListener("DOMContentLoaded", function() {
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
