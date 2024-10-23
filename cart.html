@@ -88,7 +88,7 @@
                     <span class="font-bold">Subtotal</span>
                     <span id="cart-total" class="font-bold text-xl">₹0.00</span>
                 </div>
-                <button class="bg-[#8b4513] text-white hover:bg-[#a0522d] active:bg-[#6b3d1a] btn w-full py-2 rounded-full" onclick="window.location.href='payment.html'">
+                <button id="checkout-button" class="bg-[#8b4513] text-white hover:bg-[#a0522d] active:bg-[#6b3d1a] btn w-full py-2 rounded-full" onclick="window.location.href='payment.html'">
                     CHECKOUT
                 </button>
                 
@@ -96,7 +96,12 @@
         </div>
     </div>
     
+
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
+
         function loadCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartItemsContainer = document.getElementById('cart-items');
@@ -124,6 +129,8 @@
             document.getElementById('cart-total').innerText = `₹${subtotal.toFixed(2)}`;
         }
 
+        // function checkItem
+
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const item = cart.find(cartItem => cartItem.name === name);
@@ -135,7 +142,7 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             loadCart();
         }
-    
+        //to remove the items - the cart panel visible is updated
         function changeQuantity(name, delta) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const item = cart.find(cartItem => cartItem.name === name);
@@ -148,10 +155,62 @@
                 loadCart();
             }
         }
-
-       
-            
         window.onload = loadCart();
+
+
+
+
+        // function checkout(){
+        //     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        //     const users = JSON.parse(localStorage.getItem('users')) || [];
+        //     const loggedInUser = users.find(user => user.username === localStorage.getItem('loggedInUser'))
+        //     const email = loggedInUser.email;
+            
+        //     let ebill = "Here is the order you placed: \n\n";
+        //     let subtotal = 0;
+
+        //     cart.forEach(
+        //         item =>{
+        //             const itemTotal = item.price * item*quantity;
+        //             subtotal +=itemTotal;
+        //             ebill += `${item.name}: ${item.quantity} x ₹${item.price} = ₹${itemTotal}\n`;
+        //         }
+        //     );
+
+        //     ebill += '\nTotal: ₹${subtotal.toFixed(2)}\n\nThank you for your order!';
+
+        //     sendEmail(email, ebill);
+        // }
+
+        // function sendEmail(email, ebill){
+        //     Email.send({
+        //         Host : "smtp.gmail.com",
+        //         Username : "tushitacetcap23@gmail.com",
+        //         Password : "Cetcap23#",
+        //         To : email,
+        //         From : "tushitacetcap23@gmail.com",
+        //         Subject : "CampusEats - Order placed successfully!",
+        //         Body : ebill
+        //     }).then(
+        //     message =>{
+        //      alert('Order placed! A summary of your order has been sent to your email '+ email);
+        //     window.location.href='payment.html';
+
+        // });
+        // }
+
+
+        // document.addEventListener("DOMContentLoaded", function()
+        // {
+        //     const checkoutBtn = document.getElementById("checkout-button");
+        //     if(checkoutBtn)
+        //     {
+        //         checkoutBtn.addEventListener("click", checkout);
+        //     }
+        // }
+    
+    
+        // );
     </script>
     
 
