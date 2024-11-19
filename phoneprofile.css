@@ -1,26 +1,13 @@
-/* profile.css */
 
-/* Color theme #2d291c, #9b795c */
-body {
-    background-color: #2d291c;
-    font-family: "Bree Serif", serif;
-    background-image: url('categ1.png');
-    background-size: cover;
-    background-position: center;
-    font-size: x-large;
-    color: #2d291c;
-}
 
 #profile {
     max-width: 800px;
-    margin: 40px auto;
     padding: 20px;
     background-color: #9b795c;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    margin-top: 10%;
-    
+    text-align: center; /* Optional for centering text */
 }
 
 .profile-info {
@@ -44,7 +31,6 @@ body {
 }
 
 .profile-info strong {
-    /* font-weight: bold; */
     font-size: larger;
     color: #f5f5dc;
 }
@@ -86,6 +72,6 @@ body {
     font-size: large;
 }
 
-#logoutbtn:hover{
+#logoutbtn:hover {
     background-color: #f5f5dc;
 }

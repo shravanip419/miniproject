@@ -132,7 +132,7 @@
                 </tr>
                 <tr>
                   <th>Extra tax:</th>
-                  <td id="extra-tax">₹10</td>
+                  <td id="extra-tax">₹0</td>
                 </tr>
                 <tr>
                   <th>Total amount:</th>
@@ -213,8 +213,8 @@
             });
 
             // Update bill details
-            const gst = subtotal * 0.05;
-            const extraTax = 10;
+            const gst = subtotal * 0.0;
+            const extraTax = 0;
             const totalAmount = subtotal + gst + extraTax;
 
             document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;

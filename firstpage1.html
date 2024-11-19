@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.css">
     <link rel="stylesheet" media="screen and (max-width: 1190px)" href="phone.css">
+    <link rel="stylesheet" media="screen and (max-width: 1190px)" href="phoneprofile.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
@@ -95,23 +96,10 @@
             <div class="swiper-slide">
                 <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
             <h2>
-<!-- ======= -->
     <section id="admin-controls" style="display: none;">
         <button id="saveChanges" class="btn">Save Changes</button>
         <button id="resetChanges" class="btn">Reset to Default</button>
     </section>
-
-
-
-<!-- <<<<<<< HEAD -->
-<!-- ======= -->
-<!-- <<<<<<< HEAD -->
-<!-- >>>>>>> 9ea0c8f777624558b49b7cc8110069a09a8ff489 -->
-
-
-
-
-
 <!-- Swiper Section -->
 <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
@@ -132,7 +120,6 @@
         <div class="swiper-slide">
             <img src="Poori Masala - Spice Up The Curry.jfif" alt="Box 2">
             <h2  class="editable" id="h2-5">
->>>>>>> 4ccc6d43c8f8e5d97b63063d7da3ebf5cc09b19f
                 The piping hotness of a puri tossed together with the warm and comforting bhaji masala! 
                 Could there BE any better combination? Taste the magic of the Puri Masala today!
                 Order now, and savor it while the puri is steaming hot - only the best way to have it!
@@ -182,17 +169,7 @@
     </div>
 
 <!-- <<<<<<< HEAD -->
-        <!-- Only show the edit button if the user is admin -->
-        <script>
-            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-            if (loggedInUser && loggedInUser.username === 'admin@dbit.in') {
-                document.write('<button id="save-changes">Save Changes</button>');
-            }
-        </script>
-    
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
-        <script>
+        <!-- <script>
             const Swiper = new Swiper('.mySwiper', {
                 autoplay: {
                     delay: 5000, // 3 seconds delay
@@ -204,7 +181,18 @@
                 },
                 loop: true, // Loop through slides
             });
+        </script> -->
     
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+        <!-- Only show the edit button if the user is admin -->
+        <script>
+            
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (loggedInUser && loggedInUser.username === 'admin@dbit.in') {
+                document.write('<button id="save-changes">Save Changes</button>');
+            }
+
             // Load saved content from local storage or backend API
             const savedContent = localStorage.getItem('admin-content');
             if (savedContent) {
@@ -235,28 +223,15 @@
         </script>
     </body>
     </html>
-=======
 
 
-<!-- <script src="https://unpkg.com/swiper@8.0.7/swiper-bundle.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper('.swiper-container', {
-pagination: {
-el: '.swiper-pagination',
-clickable: true,
-},
-slidesPerView:1,
-spaceBetween:5,
-});
-    });
-</script> -->
+
 <!-- Script FOR SWIPE -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <script>
-    const swiper = new Swiper('.mySwiper', {
+   const swiper = new Swiper('.mySwiper', {
         autoplay: {
             delay: 5000, // 3 seconds delay
             disableOnInteraction: false, // Continue autoplay after user interactions
@@ -269,22 +244,7 @@ spaceBetween:5,
     });
 
 
-    // document.getElementsByClassName("btn").addEventListener("click",function(event){
-    // event.preventDefault();
-    // const token=JSON.parse(localStorage.getItem('token'));
-    // if(!token)
-    // {
-    //     alert("Kindly login first!");
-    //     window.location.href='login1.html';
-    // }   
-    // else{
-    //     window.location.href='category1.html';
-    // }
-    // }
-// );
-
-//ADMIN CONTROLS
-document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
             const editableElements = document.querySelectorAll("h2.editable");
             const saveButton = document.getElementById("saveChanges");
@@ -329,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-//USER CONTROLS
+//USER CONTROLS for order now button
 // Selecting all elements with the class "btn"
 const buttons = document.getElementsByClassName("btn");
 
