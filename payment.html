@@ -159,11 +159,25 @@
     </section>
     
     <script>
-        // Function to generate a random token number
+        // Function to generate a random token number and save order details
         function generateToken() {
             const randomToken = Math.floor(10000 + Math.random() * 90000);
-            document.getElementById('token').innerText = `#${randomToken}`;
-            generateBarcode(`#${randomToken}`);
+            const token = `#${randomToken}`;
+            document.getElementById('token').innerText = token;
+
+            // Save the order and token to localStorage
+            const orderDetails = JSON.parse(localStorage.getItem('cart')) || [];
+            saveOrderToLocalStorage(token, orderDetails);
+
+            // Generate barcode for the token
+            generateBarcode(token);
+        }
+
+        // Function to save the order in localStorage with the token
+        function saveOrderToLocalStorage(token, orderDetails) {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders.push({ token, orderDetails });
+            localStorage.setItem('orders', JSON.stringify(orders));
         }
 
         // Function to generate the barcode
@@ -206,6 +220,30 @@
             document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
             document.getElementById('gst').textContent = `₹${gst.toFixed(2)}`;
             document.getElementById('total-amount').textContent = `₹${totalAmount.toFixed(2)}`;
+        }
+
+        // Function to retrieve order based on token after scanning
+        function fetchOrderByToken(scannedToken) {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const order = orders.find(order => order.token === scannedToken);
+
+            if (order) {
+                // Display order details
+                const orderSummaryTable = document.getElementById('order-summary');
+                orderSummaryTable.innerHTML = ''; // Clear current table
+
+                order.orderDetails.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>x${item.quantity}</td>
+                        <td>₹${item.price * item.quantity}</td>
+                    `;
+                    orderSummaryTable.appendChild(row);
+                });
+            } else {
+                alert('No order found for this token.');
+            }
         }
 
         // Call the function when the page loads
